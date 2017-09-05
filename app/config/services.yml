@@ -1,0 +1,51 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+    app.tokens.action_listener:
+        class: AppBundle\EventListener\RedirectUserListener
+        arguments:
+            - "@security.token_storage"
+            - "@router"
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+
+    app.profile.form.type:
+        class: AppBundle\Form\Type\ProfileFormType
+        tags:
+            - { name: form.type, alias: app_user_profile }
+
+    app.validator.address.check:
+        class: AppBundle\Validator\AddressCheckValidator
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@=container"
+        tags:
+            - { name: validator.constraint_validator, alias: app.address.check }
+
+    app.spot:
+        class: AppBundle\Spot\SpotAction
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@=container"
+            - "%max_distance%"
+            - "%max_edition_time%"
+            - "%max_picture_before_delete%"
+
+    app.comment:
+        class: AppBundle\Comment\CommentAction
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@=container"
+
+    app.geocoder:
+        class: AppBundle\Geocoder\Geocoder
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@=container"

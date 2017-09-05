@@ -1,0 +1,30 @@
+resetting:
+    check_email: >
+        An e-mail has been sent to the email address linked to your account if it exists.<br />
+        It contains a link that you will have to click on to reset your password, i. e. you will not be able to apply for %tokenLifetime% hours.<br />
+        If you don't receive this email, remember to look in the spam folder of your mailbox.
+
+    email:
+        subject: 'Resetting your password'
+        message: |
+            Hi %username% !
+
+            To reset your password, please go to the address below.
+
+            %confirmationUrl%
+
+            With kind regards,
+            Geopinsport Team
+
+form:
+    username_explain: Unique display name under which members will know you. It must be between 3 and 15 alphanumeric characters.
+    email_explain: Fill in an e-mail address available and valid for the reception of important mail.
+    password_explain: Password containing at least 6 alphanumeric characters with a mixture of numbers and letters.
+    password_conf_explain: Confirm your password.
+    new_password_conf_explain: Confirm your new password.
+    password_current_explain: For your security, confirm your current password.
+    avatar: Image de profile
+    avatar_explain: Your image must be 5 MB maximum and in JPEG, PNG or GIF format.
+
+registration:
+    submit: I'm going for it!

@@ -1,0 +1,35 @@
+<!-- ================== Footer =============== !-->
+<footer id="footer">
+    <div class="footer_copyright">
+        <div class="container clearfix">
+            <div class="col-md-6">
+                <span class="footer_copy_text">&copy; {{ 'website.copyright'|trans }}</span>
+            </div>
+
+            {% if status_code is not defined %}
+            <div class="col-md-6 clearfix">
+                <ul class="footer_menu clearfix">
+                    <li><a href="{{ path('homepage') }}"><span>{{ 'menu.home'|trans }}</span></a></li>
+                    <li>/</li>
+                    <li><a href="{{ path('legacy') }}"><span>{{ 'menu.legacy'|trans }}</span></a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-12">
+                <form class="col-md-3 language">
+                    <select class="form-control" name="lang" id="lang">
+                        {% if app.request.attributes.get('id') is defined and app.request.attributes.get('slug') is defined %}
+                        <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'fr', 'id' : app.request.attributes.get('id'), 'slug' : app.request.attributes.get('slug')})) }}" {% if app.request.get('_locale') == 'fr' %}selected{% endif %}>{{ 'lang.french'|trans }}</option>
+                        <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'en', 'id' : app.request.attributes.get('id'), 'slug' : app.request.attributes.get('slug')})) }}" {% if app.request.get('_locale') == 'en' %}selected{% endif %}>{{ 'lang.english'|trans }}</option>
+                        {% else %}
+                            <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'fr'})) }}" {% if app.request.get('_locale') == 'fr' %}selected{% endif %}>{{ 'lang.french'|trans }}</option>
+                            <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'en'})) }}" {% if app.request.get('_locale') == 'en' %}selected{% endif %}>{{ 'lang.english'|trans }}</option>
+                        {% endif %}
+                    </select>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</footer>
+<a href="#0" class="hm_go_top"></a>

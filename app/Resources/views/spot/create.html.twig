@@ -1,0 +1,62 @@
+{% extends "default/layout.html.twig" %}
+
+{% block body %}
+    <section class="content_section">
+        <div class="content row_spacer no_padding">
+            <div class="rows_container clearfix">
+                <div class="col-md-12">
+                    <div class="main_title short_line upper">
+                        <h2><span class="line"></span>{{ 'spot.create.main_title'|trans }}</h2>
+                    </div>
+                    <span class="description3">{{ 'spot.create.explain_text'|trans|raw }}</span>
+                    <form class="hm_contact_form full_contact_form" method="post">
+                        <div>{{ form_errors(form, { 'attr' : {'class' : 'alert alert-danger' } }) }}</div>
+                        <div class="form_row clearfix">
+                            <div class="col-md-4">
+                                <label for="address">
+                                    <span class="hm_field_name">{{ 'spot.create.form.address'|trans }}</span>
+                                    <span class="hm_requires_star">*</span>
+                                    <p class="hm_field_explain">{{ 'spot.create.form.address_explain'|trans }}</p>
+                                </label>
+                            </div>
+                            <div class="col-md-8">
+                                <div id="pin_address">
+                                    <button class="geolocalisation">
+                                        <i class="subscribe_true ico-map-marker2"></i>
+                                    </button>
+                                    {{ form_widget(form.address, { 'attr' : { 'class':  'geo_autocomplete'} }) }}
+                                    <span class="error">{{ form_errors(form.address) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_row clearfix">
+                            <div class="col-md-4">
+                                <label for="sports">
+                                    <span class="hm_field_name">{{ 'spot.create.form.sport'|trans }}</span>
+                                    <span class="hm_requires_star">*</span>
+                                    <p class="hm_field_explain">{{ 'spot.create.form.sport_explain'|trans }}</p>
+                                </label>
+                            </div>
+                            <div class="col-md-8">
+                                {{ form_widget(form.sports, { 'attr' : { 'class':  'hm_input_text style_full'} }) }}
+                                <span class="error">{{ form_errors(form.sports) }}</span>
+                            </div>
+                        </div>
+                        <div class="form_row clearfix">
+                            <div class="my_col_half">
+                                &nbsp;
+                            </div>
+                            <div class="my_col_half">
+                                <button type="submit" name="save" class="send_button full_button">
+                                    <i class="ico-check3"></i>
+                                    <span>{{ 'spot.create.form.submit'|trans|upper }}</span>
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_rest(form) }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

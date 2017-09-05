@@ -1,0 +1,23 @@
+{% extends "default/layout.html.twig" %}
+
+{% block body %}
+
+    <section class="content_section">
+        <div class="container row_spacer clearfix">
+            <div class="content">
+                <div class="main_desc centered">
+                    <p>{{ 'errors.other.explain'|trans|raw }}</p>
+                </div>
+                <div class="page404">
+                    <span>{{ 'errors.other.title'|trans }}<span class="face404"></span></span>
+                </div>
+                <div class="centered">
+                    <a href="{{ path('homepage') }}" target="_self" class="btn_a medium_btn bottom_space">
+                        <span><i class="in_left ico-home5"></i><span>{{ 'errors.back_to_home'|trans }}</span><i class="in_right ico-home5"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

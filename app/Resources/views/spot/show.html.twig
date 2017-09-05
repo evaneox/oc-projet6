@@ -1,0 +1,256 @@
+{% extends "default/layout.html.twig" %}
+
+{% block body %}
+    <section class="content_section white_section page_title has_bg_image enar_parallax">
+        <div class="content clearfix">
+            <h4><i class="ico-map-pin"></i> {{ spot.address|e }}</h4>
+        </div>
+    </section>
+    <!-- CONTENT -->
+    <section class="content_section">
+        <div class="content">
+            <div class="internal_post_con clearfix">
+
+                <!-- SPOT CONTENT -->
+                <div class="content_block col-md-9 f_right">
+                    <div class="hm_blog_full_list hm_blog_list clearfix">
+                        <div id="post-1" class="post-1 post type-post status-publish format-gallery has-post-thumbnail category-media tag-photos clearfix">
+                            <!-- META INFORMATION -->
+                            <div class="post_title_con">
+                                <span class="meta">
+                                    <span class="meta_part"><i class="ico-clock7"></i><span>{{ spot.createdAt| localizeddate('medium', 'none', app.request.locale, null , 'd MMMM Y' ) }}</span></span>
+                                    <span class="meta_part"><i class="ico-user5"></i><span>{{ spot.author.username }}</span></span>
+                                    <span class="meta_part"><i class="ico-comment-o"></i><span>{{ spot.getComments | length }} {{ 'spot.show.comments.title' |trans }}</span></span>
+                                </span>
+                            </div>
+                            <div class="post_format_con">
+                                <span><i class="ico-gallery"></i></span>
+                            </div>
+                            <div class="feature_inner">
+                                <div class="feature_inner_corners">
+                                    <div class="porto_galla owl-carousel owl-theme">
+                                        {% if spot.getImages |length > 0 %}
+                                            {% for image in spot.getImages %}
+                                                <div>
+                                                    <a href="{{ asset(image.getWebPath) }}" class="feature_inner_ling">
+                                                        <img src="{{ asset(image.getWebPath) }}" alt="{{ 'spot.listing.alt_picture'|trans|upper }}"/>
+                                                    </a>
+                                                </div>
+                                            {% endfor %}
+                                        {% else %}
+                                            <div><img src="{{ asset('uploads/pictures/no_picture.png') }}" alt="{{ 'spot.listing.alt_picture'|trans|upper }}"/></div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- DESCRIPTION -->
+                            <div class="blog_grid_con">
+                                <div class="small_title">
+                                    <span class="small_title_con">
+                                        <span class="s_icon"><i class="ico-tag4"></i></span>
+                                        <span class="s_text">{{ 'spot.show.description.main_title'|trans }}</span>
+                                    </span>
+                                </div>
+                                {% if spot.description %}
+                                    {{ spot.description|raw }}
+                                {% else %}
+                                    <blockquote>
+                                        <i class="ico-quote"></i>
+                                        <span class="quote_text">{{ 'spot.show.description.empty'|trans|raw }}</span>
+                                    </blockquote>
+                                {% endif %}
+                            </div>
+                            <div class="single_pro_row">
+                                <div id="share_on_socials">
+                                    <a class="facebook" target="_blank" title="Facebook" href="https://www.facebook.com/sharer.php?u={{ app.request.uri }} ~ &amp;t={{ 'share.slogan'|trans }}" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');" class="btn-share-fb"><i class="ico-facebook4"></i></a>
+                                    <a class="twitter"target="_blank" title="Twitter" href="https://twitter.com/share?url={{ app.request.uri }} ~ &amp;text={{ 'share.slogan'|trans }}&amp;via=geopinsport" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');" class="btn-share-tw"><i class="ico-twitter4"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                     </div>
+
+                    </div>
+                </div>
+
+                <!-- LEFT SIDE -->
+                <aside id="sidebar" class="col-md-3 left_sidebar">
+                    <h2 class="title1 title_color1 upper">{{ 'spot.show.informations.main_title'|trans|upper }}</h2>
+                    {% if app.user %}
+                        <div>
+                            <a class="btn_a color3 small_btn bottom_space" target="_self" href="{{ path('spot.edit', {'slug': spot.slug, 'id': spot.id}) }}">
+                                <span><i class="in_left ico-pencil"></i><span>{{ 'spot.show.informations.spot_edit'|trans|upper }}</span><i class="in_right ico-chevron-right"></i></span>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div>
+                            <a class="btn_a color3 small_btn bottom_space pop_action" target="_self" href="{{ path('spot.delete', {'id': spot.id}) }}">
+                                <span><i class="in_left ico-cross"></i><span>{{ 'spot.show.comments.delete'|trans|upper }}</span><i class="in_right ico-cross"></i></span>
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    <!-- LOCALISATION -->
+                    <div class="widget_block">
+                        <div class="small_title">
+							<span class="small_title_con">
+								<span class="s_icon"><i class="ico-flag"></i></span>
+								<span class="s_text">{{ 'spot.show.informations.localisation_title'|trans|upper }}</span>
+							</span>
+                        </div>
+                        <div class="google_map" data-lat="{{ spot.latitude|e }}" data-long="{{ spot.longitude|e }}" data-text="{{ spot.address|e }}" id=""></div>
+                        <address><i class="ico-map-pin"></i>&nbsp;</span><span class="big">{{ spot.address|e }}</span></address><br />
+                        <div>
+                            <a class="btn_a color1 small_btn bottom_space" target="_blank" href="http://maps.apple.com/?q={{ spot.address|e }}">
+                                <span><i class="in_left ico-compass2"></i><span>{{ 'spot.show.informations.gps_text'|trans|upper }}</span><i class="in_right ico-compass2"></i></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- SPORT -->
+                    <div class="widget_block">
+                        <div class="small_title">
+							<span class="small_title_con">
+								<span class="s_icon"><i class="ico-soccer-ball-o"></i></span>
+								<span class="s_text">{{ 'spot.show.informations.sport_title'|trans|upper }}</span>
+							</span>
+                        </div>
+                        <div class="tagcloud style2 clearfix">
+                            <div class="tags_con">
+                                {% for sport in spot.sports %}
+                                    <span>{{ sport.name|e }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GENDER -->
+                    {% if spot.getGenders |length > 0 %}
+                    <div class="widget_block">
+                        <div class="small_title">
+							<span class="small_title_con">
+								<span class="s_icon"><i class="ico-man-woman"></i></span>
+								<span class="s_text">{{ 'spot.show.informations.gender_title'|trans|upper }}</span>
+							</span>
+                        </div>
+                        <div class="tagcloud style2 clearfix">
+                            <div class="tags_con">
+                                {% for gender in spot.genders %}
+                                    <span>{{ gender.name|e }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- LOCALISATION -->
+                    {% if spot.getLocations |length > 0 %}
+                        <div class="widget_block">
+                            <div class="small_title">
+							<span class="small_title_con">
+								<span class="s_icon"><i class="ico-weather"></i></span>
+								<span class="s_text">{{ 'spot.show.informations.location_title'|trans|upper }}</span>
+							</span>
+                            </div>
+                            <div class="tagcloud style2 clearfix">
+                                <div class="tags_con">
+                                    {% for location in spot.locations %}
+                                        <span>{{ location.name|e }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <!-- CONTRIBUTIONS -->
+                    {% if contributions |length > 0 %}
+                        <div class="widget_block">
+                            <div class="small_title">
+                                <span class="small_title_con">
+                                    <span class="s_icon"><i class="ico-group"></i></span>
+                                    <span class="s_text">{{ 'spot.show.informations.contribution_title'|trans|upper }}</span>
+                                </span>
+                            </div>
+                            <div class="tagcloud style2 clearfix">
+                                <ul class="contribute-list">
+                                    {% for contribution in contributions %}
+                                        <li>
+                                            <div class="avatar"><img src="{{ asset(contribution.contributor.getAvatarPath) }}" alt="{{ 'profile.avatar.alt'|trans }}"></div>
+                                            <div class="infos">{{ contribution.contributor.username }}</div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                </aside>
+
+                <!-- COMMENTS -->
+                <div class="content_block col-md-9 f_right">
+
+                    <div id="comments" class="comments-area">
+                        <div class="small_title">
+							<span class="small_title_con">
+								<span class="s_icon"><i class="ico-comment-o"></i></span>
+								<span class="s_text">{{ 'spot.show.comments.title'|trans|upper }} ({{ spot.getComments | length }})</span>
+							</span>
+                        </div>
+                        {% if spot.getComments | length == 0 %}
+                            <p class="comment-notes">&bull; {{ 'spot.show.comments.no_comment'|trans }}</p>
+                        {% else %}
+                            <ol class="comments_list clearfix">
+                                {% for comment in spot.comments %}
+                                    <li class="comment single_comment">
+                                        <div class="comment-container comment-box">
+                                            <div class="trees_number">1</div>
+                                            <div class="avatar">
+                                                <img src="{{ asset(comment.author.getAvatarPath) }}" alt="{{ 'profile.avatar.alt'|trans }}">
+                                            </div>
+                                            <div class="comment_content">
+                                                <h4 class="author_name">{{ comment.author.username }}</h4>
+										        <span class="comment_meta"><time>{{ comment.createdAt| localizeddate('long', 'none', app.request.locale, null , 'd MMMM Y HH:mm' ) }}</time></span>
+                                                <div class="comment_said_text"><p>{{ comment.getContent }}</p></div>
+                                                {% if is_granted('ROLE_ADMIN') %}
+                                                    <div>
+                                                        <a class="main_button color3 small_btn bottom_space pop_action" target="_self" href="{{ path('comment.delete', {'id': comment.id}) }}">{{ 'spot.show.comments.delete'|trans }}</a></div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        {% endif %}
+
+                        <!-- COMMENT FORMS -->
+                        <div class="comments-form-area" id="comments-form">
+                            <div class="comment-respond" id="respond">
+                                <div class="small_title">
+									<span class="small_title_con">
+										<span class="s_icon"><i class="ico-pencil6"></i></span>
+										<span class="s_text">{{ 'spot.show.comments.reply_title'|trans|upper }}</span>
+									</span>
+                                </div>
+                                {% if app.user %}
+                                    <form class="comment-form" id="commentform" method="post" action="{{ path('comment.create') }}">
+                                        <p class="comment-form-comment">
+                                            <textarea aria-required="true" rows="4" cols="45" maxlength="2000" name="comment" placeholder="{{ 'spot.show.comments.form.comment'|trans }}" required="required"></textarea>
+                                        </p>
+                                        <p class="form-submit">
+                                            <input class="send_button" type="submit" value="{{ 'spot.show.comments.form.submit'|trans }}">
+                                            <input type="hidden" name="spot" value="{{ spot.getID }}" />
+                                        </p>
+                                    </form>
+                                {% else %}
+                                    <p class="comment-notes">&bull; {{ 'spot.show.comments.cant_reply'|trans|format(path('fos_user_security_login'), path('fos_user_registration_register'))|raw }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,42 @@
+<!-- ================== Header =============== !-->
+<header id="site_header">
+    <div id="navigation_bar">
+        <div class="content">
+            <div id="logo">
+                <a href="{{ path('homepage') }}">
+                    {% image 'images/logo.png' %}<img src="{{ asset_url }}" alt="{{ 'website.alt_logo'|trans }}" />{% endimage %}
+                </a>
+            </div>
+            <nav id="main_nav">
+                <div id="nav_menu">
+                    <span class="mobile_menu_trigger"><a href="#" class="nav_trigger"><span></span></a></span>
+                    <ul id="navy" class="clearfix">
+
+                        <li class="normal_menu mobile_menu_toggle {% if app.request.get('_route') == 'homepage' %}current_page_item {% endif %}">
+                            <a href="{{ path('homepage') }}"><span>{{ 'menu.home'|trans }}</span></a>
+                        </li>
+                        {% if not app.user %}
+                        <li class="normal_menu mobile_menu_toggle {% if app.request.get('_route') == 'login' %}current_page_item {% endif %}">
+                            <a href="{{ path('fos_user_security_login') }}"><span>{{ 'menu.login'|trans }}</span></a>
+                        </li>
+                        <li class="normal_menu mobile_menu_toggle {% if app.request.get('_route') == 'register' %}current_page_item {% endif %}">
+                            <a href="{{ path('fos_user_registration_register') }}"><span>{{ 'menu.register'|trans }}</span></a>
+                        </li>
+                        {% else %}
+                            <li class="normal_menu mobile_menu_toggle">
+                                <a href="{{ path('fos_user_security_logout') }}"><span>{{ 'menu.logout'|trans }}</span></a>
+                            </li>
+                            <li class="normal_menu mobile_menu_toggle {% if app.request.get('_route') == 'account' %}current_page_item {% endif %}">
+                                <a href="{{ path('fos_user_profile_show') }}"><span>{{ 'menu.account'|trans }}</span></a>
+                            </li>
+                            <li class="normal_menu mobile_menu_toggle" {% if app.request.get('_route') == 'spot.create' %}current_page_item {% endif %}>
+                                <a href="{{ path('spot.create') }}"><span>{{ 'menu.share_spot'|trans }}</span></a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+            <div class="clear"></div>
+        </div>
+    </div>
+</header>

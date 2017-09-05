@@ -1,0 +1,12 @@
+username:
+    format: Le nom d'utilisateur n'est pas valide.
+password:
+    format: Le mot de passe ne respecte pas le format requis.
+avatar:
+    format: Cette image ne respecte pas le format requis.
+    size: La taille maximale doit être de 5MB.
+address:
+    wrong: Cette adresse semble être incorrecte.
+    exist: Ce spot existe déjà, mais tu peux le compléter si tu le souhaites.
+sports:
+    min: Tu dois choisir au moins une activité pour le spot !

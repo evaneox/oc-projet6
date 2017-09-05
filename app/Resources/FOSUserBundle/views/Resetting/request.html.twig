@@ -1,0 +1,40 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+<section class="content_section">
+    <div class="content row_spacer clearfix">
+        <div class="rows_container clearfix">
+            <div class="col-md-12">
+                <div class="main_title short_line upper">
+                    <h2><span class="line"></span>{{ 'resetting.title_1'|trans }}<span class="main_title_c1"> {{ 'resetting.title_2'|trans }}</span></h2>
+                </div>
+
+                <span class="description3">{{ 'resetting.explain_text'|trans|raw }}</span>
+
+                {% trans_default_domain 'FOSUserBundle' %}
+
+                <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="hm_contact_form full_contact_form">
+                    <div class="form_row clearfix">
+                        <div class="my_col_half">
+                            <label for="username">
+                                <span class="hm_field_name">{{ 'resetting.request.username'|trans }}</span>
+                                <span class="hm_requires_star">*</span>
+                            </label>
+                            <input type="text" class="hm_input_text" id="username" name="username" required="required" /><br />
+                        </div>
+                        <div class="my_col_half">
+                            <label>&nbsp;</label>
+                            <button type="submit" name="_submit" class="send_button full_button">
+                                <i class="ico-check3"></i>
+                                <span>{{ 'resetting.request.submit'|trans|upper }}</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock fos_user_content %}
+
+

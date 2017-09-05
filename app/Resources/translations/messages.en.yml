@@ -1,0 +1,277 @@
+
+website:
+    title: Geopinsport - Find your spot to do your sport
+    author: Jérémy Bouhour
+    description: Finding a spot for your sports activity will no longer be a problem.
+    alt_logo : Website logo
+    copyright: 2017 Geopinsport - All rights reserved
+
+menu:
+    home: Home
+    login: Login
+    register: Join us
+    share_spot: Share your spot
+    legacy: Legal information
+    logout: logout
+    account: Your account
+
+share :
+    slogan : I found a great spot to do my sport
+
+lang:
+    french: Français
+    english: English
+
+register:
+    new_customer: Newcomer ?
+    new_customer_register: Sign up now.
+    explain_text: >
+        <b>I</b>f you too find the concept fun, then join us in this adventure!<br />
+         This will allow you to share your own spots, modify those already existing and full of other features you will discover.
+
+login:
+    title_1 : sign
+    title_2 : in
+    subtitle: Login to your account
+    identifier_placeholder : Email address or username
+    password_placeholder : Password
+    remember_me: Keep my session active
+    password_lost: Lost your password ?
+    submit: Sign in
+
+js:
+    confirm: Confirmation !
+    explain: There will be no turning back. !
+    yes: Yes
+    no: No
+    no_result: No results found
+
+resetting:
+    title_1 : Password
+    title_2 : lost ?
+    explain_text: <b>I</b>f you have lost your account password, fill in the form below to retrieve it.
+
+homepage:
+    slogan: <span class="flex_in_color1">Find</span> The best spot<span class="flex_in_color1"> nearby</span> <span class="flex_in3 upper light oswald_font">to do your sport</span>
+    search:
+        placeholder: Where do you want to exercise?
+        submit: here we go !
+    howitswork:
+        main_title: Easy and fast to use !
+        first:
+            title: 1. choose your location
+            explain: Use the locate button or let us know where you want to practice your sport.
+        second:
+            title: 2. find your spot
+            explain: Access all the spots around the site you have indicated and choose the one you like.
+        third:
+            title: 3. Do your sport!
+            explain: Did you find the perfect spot? A button will take you there and then it's up to you!
+    about:
+        main_title: our goal  ?
+        explain: >
+            <p>Our main objective is to make it easier for you to find a place to practice your sport.</p>
+            The search for a place to play sports can seem simple and yet how many people have stopped in their impulses by not finding anything.
+            We will guide you in the search for the perfect places to practice your sporting activities and we hope that you will drain your energy in these activities rather than complex searches on the internet.
+    stats:
+        main_title: few figures
+        members: Members
+        sports: Sports
+        spots: Spots
+
+errors:
+    404:
+        title: 404
+        explain: Oopps .. ! The page you requested was not found.  <br />The link you have used may be broken or the URL may be incorrect.
+    403:
+        title: 403
+        explain: Oopps .. ! Authentication is denied
+    other:
+        title: Fail !
+        explain: Oopps .. ! An internal error occurred when loading the page.
+    back_to_home: Back to home page
+
+profile:
+    main_title: Your<span class="main_title_c1"> Account</span>
+    avatar:
+        alt: Profile image
+
+    edit: Edit your profile
+    change_password: Change password
+    registration_date: Member since
+    stats:
+        spot: spots
+        contribution: contributions
+        comment: comments
+    spots:
+        title: The spots you shared
+        empty: You haven't shared any spot for the moment, don't hesitate to share a spot as soon as you find one nearby.
+    back: Back to profile
+
+spot:
+   create:
+       main_title: Create your spot
+       explain_text: >
+           <b>I</b>f you have found a great spot to do your sport, share it with everyone.<br />
+           Once your spot is created, you and all members will be able to add other information at any time.
+       form:
+           address: Address of the spot
+           address_explain: Try to be as precise as possible or use the geolocation button.
+           sport: Sports activities
+           sport_explain: Tell us what sports you can do at this spot.
+           submit: Create the spot !
+   listing:
+       no_result:
+           main_title: Oops ! No spot :(
+           explain_text: We could not find a spot near this address. <br /> Try starting your search at a different address.
+           create_spot: Create a spot
+       filter:
+           main_title: Search filters
+           distance_title: Search radius
+           sport_title: Sports activities
+           delete: Delete
+       more: see more
+       alt_picture: spot image
+   show:
+       description:
+           main_title: All there is to know
+           empty: >
+               There is no information on this spot yet, why not add it now?<br />
+               You can, for example, describe this spot, provide information about the time of day or other technical information.
+       informations:
+           main_title: Spot Information
+           localisation_title: Localization
+           sport_title: Sports activities
+           gps_text: I want to go there!
+           spot_edit: Edit the spot
+           spot_back: Back to the file
+           gender_title: Targets
+           location_title: Locations
+           contribution_title: About Contributors
+       comments:
+           title: Comment(s)
+           no_comment: There are no comments yet for this spot
+           reply_title: Leave a comment
+           cant_reply: Pour pouvoir laisser un commentaire, <a href="%s">Login</a> to your account Or <a href="%s">register</a>  now!
+           delete: Delete
+           form:
+               comment: Write something ...
+               submit: Post the comment
+
+   edit:
+       respect:
+           main_title: Play the game
+           explication : >
+               <ul>
+               <li>&bull; Make sure you provide accurate information</li>
+               <li>&bull; Do not modify the work of other members unless your information is secure.</li>
+               </ul>
+       form:
+           description: Some details
+           description_explain: We let your imagination run wild to design a quality spot.
+           submit: Validates changes
+           image: Images of the spot
+           image_explain: Images must be in landscape mode, no larger than 5 MB and in JPEG format.
+           gender: Targets
+           gender_explain: Tell us who can participate in the sports activities of this spot.
+           location: Locations
+           location_explain: Tell us where the sports activities are taking place at this location.
+       lock:
+           explain: <b>Ooopps.!</b>  This spot is already being edited by another member.<br />Wait a few minutes before trying again.
+           back_to_show: Retour à la fiche.
+
+legacy:
+    main_title: Legal information
+    content: >
+        <h2>1. Presentation of the site.</h2>
+        <p>According to Article 6 of Law No. 2004-575 of 21 June 2004 on trust in the digital economy,
+        users of the https://www.geopinsport.com website are informed of the identity of the different
+        as part of its implementation and follow-up:</p>
+        <b>Owner :</b> Jérémy BOUHOUR – – lille, France<br />
+        <b>Creator :</b> Jérémy BOUHOUR<br />
+        <b>Publication Manager :</b> Jérémy BOUHOUR – csfrance_noob@hotmail.fr<br />
+        The person responsible for publication is a natural or legal person.<br />
+        <b>Webmaster :</b> Jérémy BOUHOUR – csfrance_noob@hotmail.fr<br />
+        <b>Hosting company :</b> OVH – 2 RUE KELLERMANN 59100 ROUBAIX<br /><br />
+        <h2>2. General conditions of use of the site and the services offered.</h2>
+        <p>The use of the https://www.geopinsport.com site implies full and complete acceptance of the general conditions of use described below.
+        These terms of use may be modified or supplemented at any time,
+        Users of the https://www.geopinsport.com website are therefore invited to consult them regularly.</p>
+        <p>This site is normally accessible to users at all times.
+        An interruption for technical maintenance reasons can however be decided by Jeremy Bouhour,
+        who will then endeavour to inform users of the dates and times of the intervention beforehand.</p>
+        <p>The https://www.geopinsport.com website is regularly updated by Jeremy Bouhour.
+        In the same way, the legal notices can be modified at any time: they are nevertheless binding on the user who is invited to refer to them.
+        as often as possible in order to become aware of it.
+        <h2>3. Description of services provided.</h2>
+        <p>The https://www.geopinsport.com website is intended to provide information on all the company's activities.</p>
+        <p>Jérémy BOUHOUR makes every effort to provide as accurate information as possible on the https://www.geopinsport.com website.
+        However, it will not be held responsible for omissions, inaccuracies and deficiencies in the update, and will not be held responsible for any errors or omissions.
+        whether by itself or by third parties providing this information.</p
+        <p>All the information provided on the https://www.geopinsport.com website is given for information purposes only and is subject to change.
+        The information on https://www.geopinsport.com is not exhaustive.
+        They are subject to change without notice.</p>
+        <h2>Contractual limitations on technical data. </h2>
+        <p>The site uses JavaScript technology. </p>
+        <p>The website cannot be held responsible for material damages linked to the use of the site.
+        In addition, the user of the site undertakes to access the site using recent material,
+        free of viruses and with an updated, latest-generation browser</p>
+        <h2>5. Intellectual property and counterfeit.</h2>
+        <p>Jeremy Bouhour is the owner of intellectual property rights or holds the right to use all the elements accessible on the site, and is not responsible for their content.
+        including texts, images, graphics, logos, icons, sounds, software.</p>
+        <p>Any reproduction, representation, modification, publication, adaptation of all or part of the site's elements, in whole or in part, is prohibited.
+        whatever the means or the process used, is prohibited, except prior written authorization of: Jeremy Bouhour.</p>
+        <p>Any unauthorized use of the site or any of its contents will be deemed to constitute an infringement and will be prosecuted in accordance with the following terms and conditions
+        the provisions of Articles L. 335-2 and following of the Intellectual Property Code.</p>
+        <h2>6. Limitations of liability.</h2>
+        <p>Jérémy BOUHOUR will not be held responsible for any direct or indirect damage caused to the user's equipment.
+        when accessing the https://www.geopinsport.com website, and resulting either from the use of equipment which does not meet the specifications indicated in point 4, or
+        or the appearance of a bug or incompatibility.</p>
+        <p>Jeremy BOUHOUR will also not be held liable for indirect damages (such as loss of market or loss of opportunity)
+        resulting from the use of https://www.geopinsport.com.</p>
+        <p>Interactive spaces (possibility to ask questions in the contact area) are available to users. Jeremy Bouhour reserves the right to delete,
+        without prior notice of default, any content deposited in this space that contravenes the legislation applicable in France, in particular the provisions relating to data protection.
+        If necessary, Jeremy Bouhour also reserves the right to challenge the user's civil and/or criminal liability, if any, for the following reasons
+        especially in the case of racist, abusive, slanderous or pornographic messages, whatever the medium used (text, photography...).</p>
+        <h2>7. Personal data management.</h2>
+        <p>In France, personal data are notably protected by law no. 78-87 of January 6,1978, law no. 2004-801 of August 6,2004, and the French Data Protection Act of August 6,2004.
+        Article L. 226-13 of the Penal Code and the European Directive of 24 October 1995.</p>
+        <p>On the occasion of the use of the https://www.geopinsport.com site, may be collected: the URL of the links through which the user accessed the https://www.geopinsport.com site.
+        the user's access provider, the Internet protocol address of the user.</p>
+        <p>In any case, Jeremy Bouhour only collects personal information relating to the user for the purpose of certain services offered by the https://www.geopinsport.com. website.
+        The user provides this information in full knowledge of the facts, in particular when he or she selects them himself/herself.
+        The user of the https://www.geopinsport.com website is then informed whether or not it is obliged to provide this information.</p>
+        <p>In accordance with the provisions of articles 38 and following of the law 78-17 of 6 January 1978 relating to information technology, files and freedoms,
+        every user has the right to access, rectify and oppose any personal data concerning him/her, by making a written and signed request,.
+        along with a copy of the identity card with signature of the document holder, indicating the address to which the reply should be sent.</p>
+        <p>No personal information of the user of the https://www.geopinsport.com site is published without the user's knowledge, exchanged, transferred, assigned or sold on any medium to third parties.
+        Only the hypothesis of the repurchase of Jeremy Bouhour and his rights would allow the transmission of the said information to the potential purchaser who would in turn be bound by the same
+        obligation to preserve and modify data with respect to the user of the site https://www.geopinsport.com.</p>
+        <p>The site is not declared to the CNIL because it does not collect personal information.</p>
+        <p>The databases are protected by the provisions of the Act of 1 July 1998 transposing Directive 96/9 of 11 March 1996 on the legal protection of databases.</p>
+        <h2>8. Hypertext links and cookies.</h2>
+        <p>The https://www.geopinsport.com site contains a certain number of hypertext links to other sites, set up with the authorization of Jeremy Bouhour.
+        However, Jeremy Bouhour does not have the possibility to check the content of the sites visited, and will not assume any responsibility for this fact.</p>
+        <p>The navigation on the https://www.geopinsport.com website is likely to cause the installation of cookie (s) on the user's computer.
+        A cookie is a small file, which does not allow the identification of the user, but which records information relating to the navigation of a computer on a site.
+        The data obtained in this way is intended to facilitate subsequent browsing of the site, and is also intended to allow for various visitor surveys.</p>
+        <p>Refusal to install a cookie may result in the impossibility of accessing certain services.
+        However, the user can configure his or her computer as follows to refuse the installation of cookies:</p>
+        <p>Under Internet Explorer: tool tab (pictogram in the upper right hand corner) / internet options. Click Privacy and choose Block All Cookies. Confirm on Ok.</p>
+        <p>Under Firefox: at the top of the browser window, click the Firefox button, then go to the Options tab. Click on the Privacy tab.
+        Set the Retention Rules to: use custom settings for history. Finally, uncheck it to disable cookies.</p>
+        <p>Under Safari: Click on the menu icon (symbolized by a cog in the upper right corner of the browser. Select Settings.
+        Click Show Advanced Settings. In the "Privacy" section, click Content Settings. In the "Cookies" section, you can block cookies.</p>
+        <p>Under Chrome: Click on the upper right hand side of the browser on the menu icon (symbolized by three horizontal lines). Select Settings.
+        Click Show Advanced Settings. In the "Privacy" section, click on preferences.
+        In the "Privacy" tab, you can block cookies.</p>
+        <h2>9. Applicable law and jurisdiction.</h2>
+        <p>Any litigation in connection with the use of the https://www.geopinsport.com site is subject to French law.
+        The exclusive jurisdiction of the competent courts of Paris shall be vested exclusively.</p>
+        <h2>10. The main laws concerned.</h2>
+        <p>Act No. 78-17 of 6 January 1978, as amended by Act No. 2004-801 of 6 August 2004 on information technology, files and freedoms.</p>
+        <p>Law No. 2004-575 of 21 June 2004 on trust in the digital economy.</p>
+        <h2>11. Glossary.</h2>
+        <p>User: Internet user logging in, using the aforementioned site.</p>
+        <p>Personal information:"Information that allows, in any form, directly or indirectly, to
+        identification of the natural persons to whom they apply "(Article 4 of Act No. 78-17 of 6 January 1978).</p>

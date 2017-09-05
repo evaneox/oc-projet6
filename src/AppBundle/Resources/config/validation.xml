@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
+        http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+
+    <class name="FOS\UserBundle\Model\User">
+
+        <property name="username">
+            <constraint name="Regex">
+                <option name="pattern">#^[a-zA-Z0-9]{3,15}$#</option>
+                <option name="message">username.format</option>
+                <option name="groups">
+                    <value>Registration</value>
+                    <value>Profile</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="email">
+            <constraint name="Regex">
+                <option name="pattern">#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#</option>
+                <option name="message">fos_user.email.invalid</option>
+                <option name="groups">
+                    <value>Registration</value>
+                    <value>Profile</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="plainPassword">
+            <constraint name="Regex">
+                <option name="pattern">#^\S*(?=\S{6,})(?=\S*[a-z])(?=\S*[\d]){6,100}\S*$#</option>
+                <option name="message">password.format</option>
+                <option name="groups">
+                    <value>Registration</value>
+                    <value>Profile</value>
+                    <value>ResetPassword</value>
+                    <value>ChangePassword</value>
+                </option>
+            </constraint>
+        </property>
+
+    </class>
+
+    <class name="FOS\UserBundle\Model\Group">
+        <property name="name">
+            <constraint name="NotBlank">
+                <option name="message">fos_user.group.blank</option>
+                <option name="groups">Registration</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fos_user.group.short</option>
+                <option name="max">180</option>
+                <option name="maxMessage">fos_user.group.long</option>
+                <option name="groups">Registration</option>
+            </constraint>
+        </property>
+    </class>
+
+</constraint-mapping>

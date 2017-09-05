@@ -1,0 +1,160 @@
+{% extends "default/layout.html.twig" %}
+
+{% block body %}
+
+    <!-- CONTENT -->
+    <section class="content_section">
+        <div class="content">
+            <div class="internal_post_con clearfix">
+
+                <!-- SPOT CONTENT -->
+                <div class="content_block col-md-9 f_right">
+                    <div class="hm_blog_full_list hm_blog_list clearfix">
+                        <div id="post-1" class="post-1 post type-post status-publish format-gallery has-post-thumbnail category-media tag-photos clearfix">
+
+                            {% if isWritable %}
+                            <!-- FORM -->
+                            <div class="rows_container clearfix">
+                                <div class="col-md-12">
+                                    <div class="welcome_banner boxed_colored container">
+                                        <div class="content clearfix">
+                                            <h3><i class="ico-smile-o"></i> {{ 'spot.edit.respect.main_title'|trans }}</h3>
+                                            <span class="intro_text">{{ 'spot.edit.respect.explication'|trans|raw }}</span>
+                                        </div>
+                                    </div>
+                                    <form class="hm_contact_form full_contact_form" method="post" enctype="multipart/form-data">
+                                        <div>{{ form_errors(form, { 'attr' : {'class' : 'alert alert-danger' } }) }}</div>
+                                        <div class="form_row clearfix">
+                                            <div class="col-md-12">
+                                                <label for="sports">
+                                                    <span class="hm_field_name">{{ 'spot.edit.form.description'|trans }} :</span>
+                                                    <p class="hm_field_explain">{{ 'spot.edit.form.description_explain'|trans }}</p>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12">
+                                                {{ form_widget(form.description) }}
+                                                <span class="error">{{ form_errors(form.description) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="form_row clearfix">
+                                            <div class="col-md-4">
+                                                <label for="sports">
+                                                    <span class="hm_field_name">{{ 'spot.create.form.sport'|trans }} :</span>
+                                                    <p class="hm_field_explain">{{ 'spot.create.form.sport_explain'|trans }}</p>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.sports, { 'attr' : { 'class':  'hm_input_text style_full'} }) }}
+                                                <span class="error">{{ form_errors(form.sports) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="form_row clearfix">
+                                            <div class="col-md-4">
+                                                <label for="sports">
+                                                    <span class="hm_field_name">{{ 'spot.edit.form.gender'|trans }} :</span>
+                                                    <p class="hm_field_explain">{{ 'spot.edit.form.gender_explain'|trans }}</p>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.genders, { 'attr' : { 'class':  'hm_input_text style_min'} }) }}
+                                                <span class="error">{{ form_errors(form.genders) }}</span>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form_row clearfix">
+                                            <div class="col-md-4">
+                                                <label for="locations">
+                                                    <span class="hm_field_name">{{ 'spot.edit.form.location'|trans }} :</span>
+                                                    <p class="hm_field_explain">{{ 'spot.edit.form.location_explain'|trans }}</p>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.locations, { 'attr' : { 'class':  'hm_input_text style_min'} }) }}
+                                                <span class="error">{{ form_errors(form.locations) }}</span>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form_row clearfix">
+                                            <div class="col-md-4">
+                                                <label for="images">
+                                                    <span class="hm_field_name">{{ 'spot.edit.form.image'|trans }} :</span>
+                                                    <p class="hm_field_explain">{{ 'spot.edit.form.image_explain'|trans }}</p>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div id="pictures-upload" data-index="{{ numberImageItems }}" data-prototype="{% filter escape %}{% include 'form/imageType.html.twig' with { 'form': form.images.vars.prototype } %}{% endfilter %}">
+                                                    {% for image in form.images %}
+                                                        {% if postAction %}
+                                                            {% if loop.index >=  numberImageItems %}
+                                                                {% include 'form/imageType.html.twig' with { 'form': image } %}
+                                                            {% endif %}
+                                                        {% else %}
+                                                            {% if loop.index0 >=  numberImageItems %}
+                                                                {% include 'form/imageType.html.twig' with { 'form': image } %}
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form_row clearfix">
+                                            <div class="col-md-4">
+                                                &nbsp;
+                                            </div>
+                                            <div class="col-md-8">
+                                                <button type="submit" name="save" class="send_button full_button">
+                                                    <i class="ico-check3"></i>
+                                                    <span>{{ 'spot.edit.form.submit'|trans|upper }}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        {{ form_row(form._token) }}
+                                    </form>
+                                </div>
+                            </div>
+                            {% else %}
+                                <div class="content">
+                                    <div class="main_desc centered">
+                                        <p>{{ 'spot.edit.lock.explain'|trans|raw }}</p>
+                                    </div>
+                                    <div class="page404">
+                                        <span><i class="ico-lock2"></i><span class="face404"></span></span>
+                                    </div>
+                                    <div class="centered">
+                                        <a href="{{ path('spot.show', {'slug': spot.slug, 'id': spot.id}) }}" target="_self" class="btn_a medium_btn bottom_space">
+                                            <span><i class="in_left ico-keyboard-arrow-left"></i><span>{{ 'spot.edit.lock.back_to_show'|trans }}</span><i class="in_right ico-keyboard-arrow-left"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEFT SIDE -->
+                <aside id="sidebar" class="col-md-3 left_sidebar">
+                    <h2 class="title1 title_color1 upper">{{ 'spot.show.informations.main_title'|trans|upper }}</h2>
+                    <div>
+                        <a class="btn_a color3 small_btn bottom_space" target="_self" href="{{ path('spot.show', {'slug': spot.slug, 'id': spot.id}) }}">
+                            <span><i class="in_left ico-chevron-left"></i><span>{{ 'spot.show.informations.spot_back'|trans|upper }}</span><i class="in_right ico-chevron-left"></i></span>
+                        </a>
+                    </div>
+
+                    <!-- LOCALISATION -->
+                    <div class="widget_block">
+                        <div class="small_title">
+							<span class="small_title_con">
+								<span class="s_icon"><i class="ico-flag"></i></span>
+								<span class="s_text">{{ 'spot.show.informations.localisation_title'|trans|upper }}</span>
+							</span>
+                        </div>
+                        <div class="google_map" data-lat="{{ spot.latitude|e }}" data-long="{{ spot.longitude|e }}" data-text="{{ spot.address|e }}" id="map3"></div>
+                        <address><i class="ico-map-pin"></i>&nbsp;</span><span class="big">{{ spot.address|e }}</span></address><br />
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

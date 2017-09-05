@@ -1,0 +1,63 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+<section class="content_section">
+    <div class="content row_spacer clearfix">
+        <div class="rows_container clearfix">
+            <div class="col-md-8">
+                <div class="main_title short_line upper">
+                    <h2><span class="line"></span>{{ 'login.title_1'|trans }}<span class="main_title_c1">{{ 'login.title_2'|trans }}</span></h2>
+                </div>
+
+                {% if error %}
+                    <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                <form class="login_form_colored" action="{{ path("fos_user_security_check") }}" method="post">
+                    <div class="lfc_user_row">
+                        <span class="lfc_header">{{ 'login.subtitle'|trans }}</span>
+                    </div>
+                    <div class="lfc_user_row">
+                        <label for="login_user_name">
+                            <span class="lfc_alert"></span>
+                            <i class="lfc_icon ico-user5"></i>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'login.identifier_placeholder'|trans }}"/>
+                        </label>
+                    </div>
+                    <div class="lfc_user_row">
+                        <label for="login_password">
+                            <span class="lfc_alert"></span>
+                            <i class="lfc_icon ico-key3"></i>
+                            <input type="password" id="password" name="_password" required="required" placeholder="{{ 'login.password_placeholder'|trans }}" />
+                        </label>
+                    </div>
+                    <div class="lfc_user_row clearfix">
+                        <div class="my_col_half">
+                            <label for="remember_me">
+                                <span class="remember-box">
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                    <span>{{ 'login.remember_me'|trans }}</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="my_col_half clearfix">
+                            <button type="submit" id="_submit" name="_submit" class="send_button f_right">
+                                {{ 'login.submit'|trans|upper }}
+                            </button>
+                        </div>
+                    </div>
+                    <a class="lfc_forget_pass" href="{{ path('fos_user_resetting_request') }}">{{ 'login.password_lost'|trans }}</a>
+                    <input type="hidden"
+                           name="_target_path"
+                           value="{{ app.session.get("_security.main.target_path") }}">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock fos_user_content %}
+
+

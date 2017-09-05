@@ -1,0 +1,21 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+<section class="content_section">
+    <div class="content row_spacer clearfix">
+        <div class="rows_container clearfix">
+            <div class="col-md-12">
+                <div class="main_title short_line upper">
+                    <h2><span class="line"></span>{{ 'resetting.title_1'|trans }}<span class="main_title_c1"> {{ 'resetting.title_2'|trans }}</span></h2>
+                </div>
+                {% trans_default_domain 'FOSUserBundle' %}
+                <div class="welcome_banner boxed_colored container">
+                    <div class="content clearfix">
+                        <span class="intro_text">{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|raw }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

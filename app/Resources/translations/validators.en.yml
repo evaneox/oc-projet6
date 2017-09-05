@@ -1,0 +1,12 @@
+username:
+    format: The username is not valid.
+password:
+    format: The password does not match the required format.
+avatar:
+    format: This image does not fit the required format.
+    size: The maximum size should be 5MB.
+address:
+    wrong: This address appears to be incorrect.
+    exist: This spot already exists, but you can complete it if you wish.
+sports:
+    min: You must choose at least one activity for the spot!

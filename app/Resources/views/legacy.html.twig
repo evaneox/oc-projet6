@@ -1,0 +1,19 @@
+{% extends "default/layout.html.twig" %}
+
+{% block body %}
+
+    <section class="content_section">
+        <div class="content row_spacer no_padding">
+            <div class="rows_container clearfix">
+                <div class="col-md-12">
+                    <div class="main_title has_bg blue_bg upper">
+                        <h2><span class="line"></span>{{ 'legacy.main_title'|trans }}</h2>
+                    </div>
+
+                    {{ 'legacy.content'|trans|raw }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

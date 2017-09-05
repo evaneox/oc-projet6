@@ -1,0 +1,155 @@
+{% extends "default/layout.html.twig" %}
+
+{% block body %}
+    <!-- SUB_HEADER -->
+    <section class="content_section bg_fixed white_section bg1">
+        <div class="bg_overlay">
+            <div class="content centered row_spacer clearfix">
+                <div class="flex_in">
+                    <span class="flex_in2 upper oswald_font">{{ 'homepage.slogan'|trans|raw }}</span>
+                </div>
+
+                <form action="{{ path('spot.search') }}" method="get">
+                    <div id="global-search">
+                        <button class="geolocalisation">
+                            <i class="subscribe_true ico-map-marker2"></i>
+                        </button>
+                        <input name="address" class="geo_autocomplete" type="text" placeholder="{{ 'homepage.search.placeholder'|trans }}" required="required" aria-required="true" autocomplete="off">
+                        <br /><br />
+                        <button class="btn_a color3 large_btn bottom_space">
+                            <span><i class="in_left ico-search7"></i><span>{{ 'homepage.search.submit'|trans|upper }}</span><i class="in_right ico-search7"></i></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content_section">
+        <div class="content content_spacer clearfix">
+            {% if hasLocation %}
+                {% if spots|length > 0 %}
+
+                    <!-- FILTER LEFT SIDE -->
+                    <aside id="sidebar" class="col-md-3 left_sidebar">
+                        <h2 class="title1 title_color1 upper">{{ 'spot.listing.filter.main_title'|trans }}</h2>
+                        <hr />
+                        <div class="widget_block">
+                            <div class="small_title">
+                                <span class="small_title_con">
+                                    <span class="s_icon"><i class="ico-search"></i></span>
+                                    <span class="s_text">{{ 'spot.listing.filter.distance_title'|trans }}</span>
+                                </span>
+                            </div>
+                            <div class="shop_price_slider_con">
+                                <div id="shop_price_slider"></div>
+                            </div>
+                            <div class="price_filter_details clearfix">
+                                <input type="text" id="min_distance" name="min_distance" style="display: none;">
+                                <input type="text" id="max_distance" name="max_distance" style="display: none;">
+                                <div class="price_lable">
+                                    <span class="example-val" id="shop_price_slider_lower"></span> KM &mdash;
+                                    <span class="example-val" id="shop_price_slider_upper"></span> KM
+                                </div>&nbsp;
+                                <a class="main_button small_btn" target="_self" href="#" id="filter_distance_delete">
+                                    <i class="in_left ico-cross2"></i>{{ 'spot.listing.filter.delete'|trans|upper }}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="widget_block" >
+                            <div class="small_title">
+                                <span class="small_title_con">
+                                    <span class="s_icon"><i class="ico-soccer-ball-o"></i></span>
+                                    <span class="s_text">{{ 'spot.listing.filter.sport_title'|trans }}</span>
+                                </span>
+                            </div>
+                            <form id="sport_filter" method="post">
+                                {{ form_widget(form.sports, { 'attr' : { 'class':  'm_select_filter style_full'} }) }}
+                                {{ form_rest(form) }}
+                            </form><br />
+                            <a class="main_button small_btn bottom_space" target="_self" href="#" id="filter_sports_delete">
+                                <i class="in_left ico-cross2"></i>{{ 'spot.listing.filter.delete'|trans|upper }}
+                            </a>
+                        </div>
+                        <br />
+                    </aside>
+
+                    <!-- RESULTS -->
+                    <div class="content_block col-md-9 f_left">
+                        <ul class="products_filter clearfix">
+                            {% for spot in spots %}
+                            <li data-distance="{{ spot.distance }}" data-sports="{% for sport in spot.sports %}{{ sport.id }}{% if not loop.last %},{% endif %}{% endfor %}">
+                                <div class="add2cart_slide">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="add2cart_image">
+                                                <div class="porto_galla owl-carousel owl-theme">
+                                                    {% if spot.getImages |length > 0 %}
+                                                        {% for image in spot.getImages | slice(0,1)%}
+                                                            <div><img src="{{ asset(image.getWebPath) }}" alt="{{ 'spot.listing.alt_picture'|trans|upper }}"/></div>
+                                                        {% endfor %}
+                                                    {% else %}
+                                                        <div><img src="{{ asset('uploads/pictures/no_picture.png') }}" alt="{{ 'spot.listing.alt_picture'|trans|upper }}"/></div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="add2cart_details">
+                                                <div class="con_cont">
+                                                    <span class="add2cart_prod_price"><ins><i class="ico-map4"></i><br />{{ spot.distance }}<br /><small>km</small></ins></span>
+                                                    <address>{{ spot.address|e|upper }}</address>
+                                                    <div class="tags_con">
+                                                        {% for sport in spot.sports | slice(0, 5) %}
+                                                            <span>{{ sport.name|e }}</span>
+                                                        {% endfor %}
+                                                        {% if spot.sports|length > 5 %}
+                                                            <span>[ .. ]</span>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="more">
+                                                    <a class="main_button color1 small_btn bottom_space" target="_blank" href="{{ path('spot.show', {'slug': spot.slug, 'id': spot.id}) }}">
+                                                        <i class="in_left ico-eye3"></i>{{ 'spot.listing.more'|trans|upper }}
+                                                    </a>&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="main_title centered upper">
+                        <h2><span class="line"><span class="dot"></span></span>{{ 'spot.listing.no_result.main_title'|trans }}</h2>
+                        <div class="main_desc centered">
+                            <p><b>{{ 'spot.listing.no_result.explain_text'|trans|raw }}</b></p>
+                        </div>
+                    </div>
+                    {% if app.user %}
+                        <div class="centered">
+                            <br />
+                            <div>
+                                <a class="btn_a medium_btn bottom_space" target="_self" href="{{ path('spot.create') }}">
+                                    <span><i class="in_left ico-map4"></i><span>{{ 'spot.listing.no_result.create_spot'|trans|upper }}</span><i class="in_right ico-map4"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% else %}
+                <div class="main_title centered upper">
+                    <h2><span class="line"><span class="dot"></span></span>{{ 'homepage.howitswork.first.title'|trans }}</h2>
+                    <div class="main_desc centered">
+                        <p><b>{{ 'homepage.howitswork.first.explain'|trans }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}
+

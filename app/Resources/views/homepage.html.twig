@@ -1,0 +1,109 @@
+{% extends "default/layout.html.twig" %}
+
+{% block body %}
+
+    <!-- ================== Search background =============== !-->
+    <section class="content_section bg_fixed white_section bg1">
+        <div class="bg_overlay">
+            <div class="content centered row_spacer clearfix">
+                <div class="flex_in">
+                    <span class="flex_in2 upper oswald_font">{{ 'homepage.slogan'|trans|raw }}</span>
+                </div>
+
+                <form action="{{ path('spot.search') }}" method="get">
+                    <div id="global-search">
+                        <button class="geolocalisation">
+                            <i class="subscribe_true ico-map-marker2"></i>
+                        </button>
+                        <input name="address" class="geo_autocomplete" type="text" placeholder="{{ 'homepage.search.placeholder'|trans }}" required="required" aria-required="true" autocomplete="off">
+                        <br /><br />
+                        <button class="btn_a color3 large_btn bottom_space">
+                            <span><i class="in_left ico-search7"></i><span>{{ 'homepage.search.submit'|trans|upper }}</span><i class="in_right ico-search7"></i></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== How it's work =============== !-->
+    <section class="content_section">
+        <div class="container icons_spacer icon_boxes_con style1 circle upper_title just_icon_border solid_icon clearfix">
+            <div class="main_title centered upper">
+                <h2><span class="line"><span class="dot"></span></span>{{ 'homepage.howitswork.main_title'|trans }}</h2>
+            </div>
+            <div class="icon_boxes_con style1 clearfix">
+                <div class="col-md-4">
+                    <div class="service_box">
+                        <span class="icon"><i class="ico-pin"></i></span>
+                        <div class="service_box_con centered">
+                            <h3>{{ 'homepage.howitswork.first.title'|trans }}</h3>
+                            <span class="desc">{{ 'homepage.howitswork.first.explain'|trans }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service_box">
+                        <span class="icon"><i class="color1 ico-globe4"></i></span>
+                        <div class="service_box_con centered">
+                            <h3>{{ 'homepage.howitswork.second.title'|trans }}</h3>
+                            <span class="desc">{{ 'homepage.howitswork.second.explain'|trans }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service_box">
+                        <span class="icon"><i class="color2 ico-accessibility"></i></span>
+                        <div class="service_box_con centered">
+                            <h3>{{ 'homepage.howitswork.third.title'|trans }}</h3>
+                            <span class="desc">{{ 'homepage.howitswork.third.explain'|trans }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== About =============== !-->
+    <section class="content_section">
+        <div class="welcome_banner full_banner_colored centered">
+            <div class="content clearfix">
+                <h3>{{ 'homepage.about.main_title'|trans|upper }}</h3>
+                <span class="intro_text">{{ 'homepage.about.explain'|trans|raw }}</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== Statistics =============== !-->
+    <section class="content_section">
+        <div class="content row_spacer">
+            <div class="main_title centered upper">
+                <h2><span class="line"></span>{{ 'homepage.stats.main_title'|trans|upper }}</h2>
+            </div>
+            <div class="counter_b clearfix">
+                <div class="col-md-4">
+                    <div class="counter animated fadeInDown visible" data-animation="fadeInDown" data-animation-delay="300">
+                        <span class="icon"><i class="ico-profile-male"></i></span>
+                        <span class="value" data-speed="2000" data-from="0" data-to="{{ total_users }}">{{ total_users }}</span>
+                        <span class="title">{{ 'homepage.stats.members'|trans|upper }}</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="counter animated fadeInDown visible" data-animation="fadeInDown" data-animation-delay="600">
+                        <span class="icon"><i class="ico-bike"></i></span>
+                        <span class="value" data-speed="2000" data-from="0" data-to="{{ total_sports }}">{{ total_sports }}</span>
+                        <span class="title">{{ 'homepage.stats.sports'|trans|upper }}</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="counter animated fadeInDown visible" data-animation="fadeInDown" data-animation-delay="900">
+                        <span class="icon"><i class="ico-map4"></i></span>
+                        <span class="value" data-speed="2000" data-from="0" data-to="{{ total_spots }}">{{ total_spots }}</span>
+                        <span class="title">{{ 'homepage.stats.spots'|trans|upper }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

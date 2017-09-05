@@ -1,0 +1,30 @@
+resetting:
+    check_email: >
+        Un e-mail a été envoyé à l'adresse email liée à ton compte si celui-ci existe.<br />
+        Il contient un lien sur lequel tu devras cliquer pour réinitialiser ton mot de passe, à savoir que tu ne pourras plus faire de demandes pendant %tokenLifetime% heures.<br />
+        Si tu ne reçois pas cet e-mail, pense à regarder dans le dossier spam de ta boîte mail.
+
+    email:
+        subject: 'Réinitialisation de ton mot de passe'
+        message: |
+            Bonjour %username% !
+
+            Pour réinitialiser ton mot de passe, merci de te rendre sur l'adresse ci-dessous.
+
+            %confirmationUrl%
+
+            Cordialement,
+            L'équipe Geopinsport
+
+form:
+    username_explain: Nom d'affichage unique sous lequel les membres vont te connaître. Il doit être compris entre 3 à 15 caractères alphanumériques.
+    email_explain: Renseigne une adresse e-mail disponible et valide pour la réception de courrier important.
+    password_explain: Mot de passe contenant au minimum 6 caractères alphanumériques avec un mélange chiffres et lettres.
+    password_conf_explain: Confirme ton mot de passe.
+    new_password_conf_explain: Confirme ton nouveau mot de passe.
+    password_current_explain: Pour ta sécurité, confirme ton mot de passe actuel.
+    avatar: Image de profile
+    avatar_explain: Ton image doit être de 5 MB maximum et au format JPEG, PNG ou GIF.
+
+registration:
+    submit: Je me lance !

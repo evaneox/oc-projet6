@@ -1,0 +1,85 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="fr"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="fr"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="fr"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="fr"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="fr"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{{ 'website.title'|trans }}</title>
+    <meta name="author" content="{{ 'website.author'|trans }}" />
+    <meta name="description" content="{{ 'website.description'|trans }}" />
+
+    <!-- google verify -->
+    <meta name="google-site-verification" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon/favicon.ico') }}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{{ asset('images/favicon/apple-touch-icon.png') }}" />
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/favicon/apple-touch-icon-57x57.png') }}" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/favicon/apple-touch-icon-72x72.png') }}" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('images/favicon/apple-touch-icon-76x76.png') }}" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/favicon/apple-touch-icon-114x114.png') }}" />
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('images/favicon/apple-touch-icon-120x120.png') }}" />
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/favicon/apple-touch-icon-144x144.png') }}" />
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/favicon/apple-touch-icon-152x152.png') }}" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/multiple-select/1.2.0/multiple-select.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/minimal/minimal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.7/summernote.css" />
+
+    {% stylesheets 'css/*' filter='cssrewrite' output='css/compiled/app.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+
+    <!-- Google fonts -->
+    <link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body class="preloader3 light_header menu_button_mode">
+
+    <!-- ================== Loader =============== !-->
+    <div id="preloader">
+        <div class="spinner">
+            <div class="sk-dot1"></div><div class="sk-dot2"></div>
+            <div class="rect3"></div><div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+
+    <!-- ================== Content =============== !-->
+    <div id="main_wrapper">
+        {% include "default/menu.html.twig" %}
+        {% block body %}{% endblock %}
+        {% include "default/footer.html.twig" %}
+    </div>
+
+    <!-- ================== Javascript =============== !-->
+    <script>
+        var _locale                 = "{{ app.request.get('_locale')|lower  }}";
+        var _lang_confirm           = "{{ 'js.confirm'|trans }}";
+        var _lang_confirm_explain   = "{{ 'js.explain'|trans }}";
+        var _lang_confirm_yes       = "{{ 'js.yes'|trans }}";
+        var _lang_confirm_no        = "{{ 'js.no'|trans }}";
+        var _lang_no_result         = "{{ 'js.no_result'|trans }}";
+    </script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALKLPNETzySfdL4U6s3l7cq9Q5D7d1PlE&libraries=places"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.7/summernote.min.js"></script>
+
+
+    {% javascripts 'js/*' filter='?jsqueeze' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+</body>
+</html>

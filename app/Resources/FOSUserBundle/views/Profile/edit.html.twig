@@ -1,0 +1,75 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+    <div class="col-md-12">
+        <section class="content_section">
+            <div class="content row_spacer">
+                <div class="main_title short_line upper">
+                    <h2><span class="line"></span>{{ 'profile.main_title'|trans|raw }}</h2>
+                </div>
+                <div>
+                    <a class="btn_a color3 small_btn bottom_space" target="_self" href="{{ path('fos_user_profile_show') }}">
+                        <span><i class="in_left ico-chevron-left"></i><span>{{ 'profile.back'|trans|upper }}</span><i class="in_right ico-chevron-left"></i></span>
+                    </a>
+                </div>
+                <div class="rows_container clearfix">
+                    {% trans_default_domain 'FOSUserBundle' %}
+                    <form class="hm_contact_form full_contact_form" action="{{ path("fos_user_profile_edit") }}" method="post" enctype="multipart/form-data">
+                        <div>{{ form_errors(form, { 'attr' : {'class' : 'alert alert-danger' } }) }}</div>
+                        <div class="form_row clearfix">
+                            <div class="my_col_half">
+                                <label for="username">
+                                    <span class="hm_field_name">{{ 'form.username'|trans }}</span>
+                                    <span class="hm_requires_star">*</span>
+                                    <p class="hm_field_explain">{{ 'form.username_explain'|trans }}</p>
+                                </label>
+                            </div>
+                            <div class="my_col_half">
+                                {{ form_widget(form.username, { 'attr' : { 'class':  'hm_input_text'} }) }}
+                                <span class="error">{{ form_errors(form.username) }}</span>
+                            </div>
+                        </div>
+                        <div class="form_row clearfix">
+                            <div class="my_col_half">
+                                <label for="email">
+                                    <span class="hm_field_name">{{ 'form.email'|trans }}</span>
+                                    <span class="hm_requires_star">*</span>
+                                    <p class="hm_field_explain">{{ 'form.email_explain'|trans }}</p>
+                                </label>
+                            </div>
+                            <div class="my_col_half">
+                                {{ form_widget(form.email, { 'attr' : { 'class':  'hm_input_text'} }) }}
+                                <span class="error">{{ form_errors(form.email) }}</span>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form_row clearfix">
+                            <div class="my_col_half">
+                                <label for="avatar">
+                                    <span class="hm_field_name">{{ 'form.avatar'|trans }}</span>
+                                    <p class="hm_field_explain">{{ 'form.avatar_explain'|trans }}</p>
+                                </label>
+                            </div>
+                            <div class="my_col_half">
+                                {{ form_widget(form.avatar, { 'attr' : { 'class':  'hm_input_text'} }) }}
+                                <span class="error">{{ form_errors(form.avatar) }}</span>
+                            </div>
+                        </div>
+                        <div class="form_row clearfix">
+                            <div class="my_col_half">
+                                &nbsp;
+                            </div>
+                            <div class="my_col_half">
+                                <button type="submit" name="_submit" class="send_button full_button">
+                                    <i class="ico-check3"></i>
+                                    <span>{{ 'profile.edit.submit'|trans|upper }}</span>
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_rest(form) }}
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

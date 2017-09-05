@@ -1,0 +1,57 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+<section class="content_section">
+    <div class="content row_spacer clearfix">
+        <div class="rows_container clearfix">
+            <div class="col-md-10">
+                <div class="main_title short_line upper">
+                    <h2><span class="line"></span>{{ 'resetting.title_1'|trans }}<span class="main_title_c1"> {{ 'resetting.title_2'|trans }}</span></h2>
+                </div>
+
+                {% trans_default_domain 'FOSUserBundle' %}
+                {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'hm_contact_form full_contact_form' } }) }}
+                    <div>{{ form_errors(form, { 'attr' : {'class' : 'alert alert-danger' } }) }}</div>
+                    <div class="form_row clearfix">
+                        <div class="my_col_half">
+                            <label for="password">
+                                <span class="hm_field_name">{{ 'form.password'|trans }}</span>
+                                <span class="hm_requires_star">*</span>
+                                <p class="hm_field_explain">{{ 'form.password_explain'|trans }}</p>
+                            </label>
+                        </div>
+                        <div class="my_col_half">
+                            {{ form_widget(form.plainPassword.first, { 'attr' : { 'class':  'hm_input_text'} }) }}
+                            <span class="error">{{ form_errors(form.plainPassword.first) }}</span>
+                        </div>
+                    </div>
+                    <div class="form_row clearfix">
+                        <div class="my_col_half">
+                            <label for="confirm-password">
+                                <span class="hm_field_name">{{ 'form.password_confirmation'|trans }}</span>
+                                <span class="hm_requires_star">*</span>
+                                <p class="hm_field_explain">{{ 'form.password_conf_explain'|trans }}</p>
+                            </label>
+                        </div>
+                        <div class="my_col_half">
+                            {{ form_widget(form.plainPassword.second, { 'attr' : { 'class':  'hm_input_text'} }) }}
+                            <span class="error">{{ form_errors(form.plainPassword.second) }}</span>
+                        </div>
+                    </div>
+                    <div class="form_row clearfix">
+                        <div class="my_col_half">
+                            &nbsp;
+                        </div>
+                        <div class="my_col_half">
+                            <button type="submit" name="_submit" class="send_button full_button">
+                                <i class="ico-check3"></i>
+                                <span>{{ 'resetting.reset.submit'|trans|upper }}</span>
+                            </button>
+                        </div>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock fos_user_content %}

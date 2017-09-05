@@ -1,0 +1,88 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+<section class="content_section">
+    <div class="content row_spacer clearfix">
+        <div class="rows_container clearfix">
+            <div class="col-md-12">
+                <div class="main_title short_line upper">
+                    <h2><span class="line"></span>{{ 'register.new_customer'|trans }} <span class="main_title_c1">{{ 'register.new_customer_register'|trans }}</span></h2>
+                </div>
+
+                <span class="description3">{{ 'register.explain_text'|trans|raw }}</span>
+
+                {% trans_default_domain 'FOSUserBundle' %}
+                <form class="hm_contact_form full_contact_form" action="{{ path("fos_user_registration_register") }}" method="post">
+                    <div>{{ form_errors(form, { 'attr' : {'class' : 'alert alert-danger' } }) }}</div>
+                    <div class="form_row clearfix">
+                        <div class="my_col_half">
+                            <label for="username">
+                                <span class="hm_field_name">{{ 'form.username'|trans }}</span>
+                                <span class="hm_requires_star">*</span>
+                                <p class="hm_field_explain">{{ 'form.username_explain'|trans }}</p>
+                            </label>
+                        </div>
+                        <div class="my_col_half">
+                            {{ form_widget(form.username, { 'attr' : { 'class':  'hm_input_text'} }) }}
+                            <span class="error">{{ form_errors(form.username) }}</span>
+                        </div>
+                    </div>
+                    <div class="form_row clearfix">
+                        <div class="my_col_half">
+                            <label for="email">
+                                <span class="hm_field_name">{{ 'form.email'|trans }}</span>
+                                <span class="hm_requires_star">*</span>
+                                <p class="hm_field_explain">{{ 'form.email_explain'|trans }}</p>
+                            </label>
+                        </div>
+                        <div class="my_col_half">
+                            {{ form_widget(form.email, { 'attr' : { 'class':  'hm_input_text'} }) }}
+                            <span class="error">{{ form_errors(form.email) }}</span>
+                        </div>
+                    </div>
+                    <div class="form_row clearfix">
+                        <div class="my_col_half">
+                            <label for="password">
+                                <span class="hm_field_name">{{ 'form.password'|trans }}</span>
+                                <span class="hm_requires_star">*</span>
+                                <p class="hm_field_explain">{{ 'form.password_explain'|trans }}</p>
+                            </label>
+                        </div>
+                        <div class="my_col_half">
+                            {{ form_widget(form.plainPassword.first, { 'attr' : { 'class':  'hm_input_text'} }) }}
+                            <span class="error">{{ form_errors(form.plainPassword.first) }}</span>
+                        </div>
+                    </div>
+                    <div class="form_row clearfix">
+                        <div class="my_col_half">
+                            <label for="confirm-password">
+                                <span class="hm_field_name">{{ 'form.password_confirmation'|trans }}</span>
+                                <span class="hm_requires_star">*</span>
+                                <p class="hm_field_explain">{{ 'form.password_conf_explain'|trans }}</p>
+                            </label>
+                        </div>
+                        <div class="my_col_half">
+                            {{ form_widget(form.plainPassword.second, { 'attr' : { 'class':  'hm_input_text'} }) }}
+                            <span class="error">{{ form_errors(form.plainPassword.second) }}</span>
+                        </div>
+                    </div>
+                    <div class="form_row clearfix">
+                        <div class="my_col_half">
+                            &nbsp;
+                        </div>
+                        <div class="my_col_half">
+                            <button type="submit" name="_submit" class="g-recaptcha send_button full_button">
+                                <i class="ico-check3"></i>
+                                <span>{{ 'registration.submit'|trans|upper }}</span>
+                            </button>
+                        </div>
+                    </div>
+                   {{ form_rest(form) }}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock fos_user_content %}
+
+
