@@ -53,7 +53,7 @@
                                     </span>
                                 </div>
                                 {% if spot.description %}
-                                    {{ spot.description|raw }}
+                                    {{ spot.description|html }}
                                 {% else %}
                                     <blockquote>
                                         <i class="ico-quote"></i>
