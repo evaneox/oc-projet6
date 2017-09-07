@@ -16,13 +16,4 @@ class PageController extends Controller
         return $this->render('legacy.html.twig');
     }
 
-
-    /**
-     * @Route("/faq", name="faq")
-     */
-    public function faqAction()
-    {
-        return $this->render('faq.html.twig');
-    }
-
 }
