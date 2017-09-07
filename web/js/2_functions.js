@@ -222,11 +222,9 @@ $(function(){
 
             // get the filter values and convert to array
             var distance_filter = $('#shop_price_slider').val().toString().split(',');
-            var sports_filter   = $('select').multipleSelect('getSelects');
+            var sports_filter   = $('select.style_full').multipleSelect('getSelects');
             var min_distance    = distance_filter[0];
             var max_distance    = distance_filter[1];
-
-            //console.log(sports_filter);
 
             // For each spot element
             $('.products_filter li').each(function(){
