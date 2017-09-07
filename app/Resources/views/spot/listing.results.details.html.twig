@@ -1,0 +1,19 @@
+<div class="add2cart_details">
+    <div class="con_cont">
+        <span class="add2cart_prod_price"><ins><i class="ico-map4"></i><br />{{ spot.distance }}<br /><small>km</small></ins></span>
+        <address>{{ spot.address|e|upper }}</address>
+        <div class="tags_con">
+            {% for sport in spot.sports | slice(0, 5) %}
+                <span>{{ sport.name|e }}</span>
+            {% endfor %}
+            {% if spot.sports|length > 5 %}
+                <span>[ .. ]</span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="more">
+        <a class="main_button color1 small_btn bottom_space" target="_blank" href="{{ path('spot.show', {'slug': spot.slug, 'id': spot.id}) }}">
+            <i class="in_left ico-eye3"></i>{{ 'spot.listing.more'|trans|upper }}
+        </a>&nbsp;&nbsp;&nbsp;
+    </div>
+</div>

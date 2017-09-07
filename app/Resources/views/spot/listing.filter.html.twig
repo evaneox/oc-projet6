@@ -1,0 +1,42 @@
+<aside id="sidebar" class="col-md-3 left_sidebar">
+    <h2 class="title1 title_color1 upper">{{ 'spot.listing.filter.main_title'|trans }}</h2>
+    <hr />
+    <div class="widget_block">
+        <div class="small_title">
+            <span class="small_title_con">
+                <span class="s_icon"><i class="ico-search"></i></span>
+                <span class="s_text">{{ 'spot.listing.filter.distance_title'|trans }}</span>
+            </span>
+        </div>
+        <div class="shop_price_slider_con">
+            <div id="shop_price_slider"></div>
+        </div>
+        <div class="price_filter_details clearfix">
+            <input type="text" id="min_distance" name="min_distance" style="display: none;">
+            <input type="text" id="max_distance" name="max_distance" style="display: none;">
+            <div class="price_lable">
+                <span class="example-val" id="shop_price_slider_lower"></span> KM &mdash;
+                <span class="example-val" id="shop_price_slider_upper"></span> KM
+            </div>&nbsp;
+            <a class="main_button small_btn" target="_self" href="#" id="filter_distance_delete">
+                <i class="in_left ico-cross2"></i>{{ 'spot.listing.filter.delete'|trans|upper }}
+            </a>
+        </div>
+    </div>
+    <div class="widget_block" >
+        <div class="small_title">
+            <span class="small_title_con">
+                <span class="s_icon"><i class="ico-soccer-ball-o"></i></span>
+                <span class="s_text">{{ 'spot.listing.filter.sport_title'|trans }}</span>
+            </span>
+        </div>
+        <form id="sport_filter" method="post">
+            {{ form_widget(form.sports, { 'attr' : { 'class':  'm_select_filter style_full'} }) }}
+            {{ form_rest(form) }}
+        </form><br />
+        <a class="main_button small_btn bottom_space" target="_self" href="#" id="filter_sports_delete">
+            <i class="in_left ico-cross2"></i>{{ 'spot.listing.filter.delete'|trans|upper }}
+        </a>
+    </div>
+    <br />
+</aside>

@@ -1,0 +1,18 @@
+<div class="content_block col-md-9 f_left">
+    <ul class="products_filter clearfix">
+        {% for spot in spots %}
+            <li data-distance="{{ spot.distance }}" data-sports="{% for sport in spot.sports %}{{ sport.id }}{% if not loop.last %},{% endif %}{% endfor %}">
+                <div class="add2cart_slide">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% include 'spot/listing.results.image.html.twig' %}
+                        </div>
+                        <div class="col-md-12">
+                            {% include 'spot/listing.results.details.html.twig' %}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

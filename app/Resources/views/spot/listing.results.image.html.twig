@@ -1,0 +1,11 @@
+<div class="add2cart_image">
+    <div class="porto_galla owl-carousel owl-theme">
+        {% if spot.getImages |length > 0 %}
+            {% for image in spot.getImages | slice(0,1)%}
+                <div><img src="{{ asset(image.getWebPath) }}" alt="{{ 'spot.listing.alt_picture'|trans|upper }}"/></div>
+            {% endfor %}
+        {% else %}
+            <div><img src="{{ asset('uploads/pictures/no_picture.png') }}" alt="{{ 'spot.listing.alt_picture'|trans|upper }}"/></div>
+        {% endif %}
+    </div>
+</div>
