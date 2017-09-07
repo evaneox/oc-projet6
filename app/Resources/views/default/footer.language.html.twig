@@ -1,0 +1,11 @@
+<form class="col-md-3 language">
+    <select class="form-control" name="lang" id="lang">
+        {% if app.request.attributes.get('id') is defined and app.request.attributes.get('slug') is defined %}
+            <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'fr', 'id' : app.request.attributes.get('id'), 'slug' : app.request.attributes.get('slug')})) }}" {% if app.request.get('_locale') == 'fr' %}selected{% endif %}>{{ 'lang.french'|trans }}</option>
+            <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'en', 'id' : app.request.attributes.get('id'), 'slug' : app.request.attributes.get('slug')})) }}" {% if app.request.get('_locale') == 'en' %}selected{% endif %}>{{ 'lang.english'|trans }}</option>
+        {% else %}
+            <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'fr'})) }}" {% if app.request.get('_locale') == 'fr' %}selected{% endif %}>{{ 'lang.french'|trans }}</option>
+            <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'en'})) }}" {% if app.request.get('_locale') == 'en' %}selected{% endif %}>{{ 'lang.english'|trans }}</option>
+        {% endif %}
+    </select>
+</form>
