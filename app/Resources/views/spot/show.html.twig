@@ -188,68 +188,7 @@
                 </aside>
 
                 <!-- COMMENTS -->
-                <div class="content_block col-md-9 f_right">
-
-                    <div id="comments" class="comments-area">
-                        <div class="small_title">
-							<span class="small_title_con">
-								<span class="s_icon"><i class="ico-comment-o"></i></span>
-								<span class="s_text">{{ 'spot.show.comments.title'|trans|upper }} ({{ spot.getComments | length }})</span>
-							</span>
-                        </div>
-                        {% if spot.getComments | length == 0 %}
-                            <p class="comment-notes">&bull; {{ 'spot.show.comments.no_comment'|trans }}</p>
-                        {% else %}
-                            <ol class="comments_list clearfix">
-                                {% for comment in spot.comments %}
-                                    <li class="comment single_comment">
-                                        <div class="comment-container comment-box">
-                                            <div class="trees_number">1</div>
-                                            <div class="avatar">
-                                                <img src="{{ asset(comment.author.getAvatarPath) }}" alt="{{ 'profile.avatar.alt'|trans }}">
-                                            </div>
-                                            <div class="comment_content">
-                                                <h4 class="author_name">{{ comment.author.username }}</h4>
-										        <span class="comment_meta"><time>{{ comment.createdAt| localizeddate('long', 'none', app.request.locale, null , 'd MMMM Y HH:mm' ) }}</time></span>
-                                                <div class="comment_said_text"><p>{{ comment.getContent }}</p></div>
-                                                {% if is_granted('ROLE_ADMIN') %}
-                                                    <div>
-                                                        <a class="main_button color3 small_btn bottom_space pop_action" target="_self" href="{{ path('comment.delete', {'id': comment.id}) }}">{{ 'spot.show.comments.delete'|trans }}</a></div>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                    </li>
-                                {% endfor %}
-                            </ol>
-                        {% endif %}
-
-                        <!-- COMMENT FORMS -->
-                        <div class="comments-form-area" id="comments-form">
-                            <div class="comment-respond" id="respond">
-                                <div class="small_title">
-									<span class="small_title_con">
-										<span class="s_icon"><i class="ico-pencil6"></i></span>
-										<span class="s_text">{{ 'spot.show.comments.reply_title'|trans|upper }}</span>
-									</span>
-                                </div>
-                                {% if app.user %}
-                                    <form class="comment-form" id="commentform" method="post" action="{{ path('comment.create') }}">
-                                        <p class="comment-form-comment">
-                                            <textarea aria-required="true" rows="4" cols="45" maxlength="2000" name="comment" placeholder="{{ 'spot.show.comments.form.comment'|trans }}" required="required"></textarea>
-                                        </p>
-                                        <p class="form-submit">
-                                            <input class="send_button" type="submit" value="{{ 'spot.show.comments.form.submit'|trans }}">
-                                            <input type="hidden" name="spot" value="{{ spot.getID }}" />
-                                        </p>
-                                    </form>
-                                {% else %}
-                                    <p class="comment-notes">&bull; {{ 'spot.show.comments.cant_reply'|trans|format(path('fos_user_security_login'), path('fos_user_registration_register'))|raw }}</p>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {% include 'show.comments.html.twig' %}
             </div>
         </div>
     </section>
