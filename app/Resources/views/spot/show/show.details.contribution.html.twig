@@ -1,0 +1,20 @@
+{% if contributions |length > 0 %}
+    <div class="widget_block">
+        <div class="small_title">
+            <span class="small_title_con">
+                <span class="s_icon"><i class="ico-group"></i></span>
+                <span class="s_text">{{ 'spot.show.informations.contribution_title'|trans|upper }}</span>
+            </span>
+        </div>
+        <div class="tagcloud style2 clearfix">
+            <ul class="contribute-list">
+                {% for contribution in contributions %}
+                    <li>
+                        <div class="avatar"><img src="{{ asset(contribution.contributor.getAvatarPath) }}" alt="{{ 'profile.avatar.alt'|trans }}"></div>
+                        <div class="infos">{{ contribution.contributor.username }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

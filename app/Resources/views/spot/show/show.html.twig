@@ -1,0 +1,25 @@
+{% extends "default/layout.html.twig" %}
+
+{% block body %}
+    <section class="content_section white_section page_title has_bg_image enar_parallax">
+        <div class="content clearfix">
+            <h4><i class="ico-map-pin"></i> {{ spot.address|e }}</h4>
+        </div>
+    </section>
+    <!-- CONTENT -->
+    <section class="content_section">
+        <div class="content">
+            <div class="internal_post_con clearfix">
+
+                <!-- SPOT CONTENT -->
+                {% include 'spot/show/show.content.html.twig' %}
+
+                <!-- LEFT SIDE -->
+                {% include 'spot/show/show.details.html.twig' %}
+
+                <!-- COMMENTS -->
+                {% include 'spot/show/show.comments.html.twig' %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

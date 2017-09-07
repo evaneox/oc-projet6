@@ -1,0 +1,15 @@
+<div class="widget_block">
+    <div class="small_title">
+        <span class="small_title_con">
+            <span class="s_icon"><i class="ico-soccer-ball-o"></i></span>
+            <span class="s_text">{{ 'spot.show.informations.sport_title'|trans|upper }}</span>
+        </span>
+    </div>
+    <div class="tagcloud style2 clearfix">
+        <div class="tags_con">
+            {% for sport in spot.sports %}
+                <span>{{ sport.name|e }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</div>

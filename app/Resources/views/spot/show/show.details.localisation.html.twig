@@ -1,0 +1,15 @@
+<div class="widget_block">
+    <div class="small_title">
+        <span class="small_title_con">
+            <span class="s_icon"><i class="ico-flag"></i></span>
+            <span class="s_text">{{ 'spot.show.informations.localisation_title'|trans|upper }}</span>
+        </span>
+    </div>
+    <div class="google_map" data-lat="{{ spot.latitude|e }}" data-long="{{ spot.longitude|e }}" data-text="{{ spot.address|e }}" id=""></div>
+    <address><i class="ico-map-pin"></i>&nbsp;</span><span class="big">{{ spot.address|e }}</span></address><br />
+    <div>
+        <a class="btn_a color1 small_btn bottom_space" target="_blank" href="http://maps.apple.com/?q={{ spot.address|e }}">
+            <span><i class="in_left ico-compass2"></i><span>{{ 'spot.show.informations.gps_text'|trans|upper }}</span><i class="in_right ico-compass2"></i></span>
+        </a>
+    </div>
+</div>

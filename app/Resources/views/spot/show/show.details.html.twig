@@ -1,0 +1,32 @@
+<aside id="sidebar" class="col-md-3 left_sidebar">
+    <h2 class="title1 title_color1 upper">{{ 'spot.show.informations.main_title'|trans|upper }}</h2>
+    {% if app.user %}
+        <div>
+            <a class="btn_a color3 small_btn bottom_space" target="_self" href="{{ path('spot.edit', {'slug': spot.slug, 'id': spot.id}) }}">
+                <span><i class="in_left ico-pencil"></i><span>{{ 'spot.show.informations.spot_edit'|trans|upper }}</span><i class="in_right ico-chevron-right"></i></span>
+            </a>
+        </div>
+    {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <div>
+            <a class="btn_a color3 small_btn bottom_space pop_action" target="_self" href="{{ path('spot.delete', {'id': spot.id}) }}">
+                <span><i class="in_left ico-cross"></i><span>{{ 'spot.show.comments.delete'|trans|upper }}</span><i class="in_right ico-cross"></i></span>
+            </a>
+        </div>
+    {% endif %}
+
+    <!-- LOCALISATION -->
+    {% include 'spot/show/show.details.localisation.html.twig' %}
+
+    <!-- SPORT -->
+    {% include 'spot/show/show.details.sport.html.twig' %}
+
+    <!-- GENDER -->
+    {% include 'spot/show/show.details.gender.html.twig' %}
+
+    <!-- LOCATION -->
+    {% include 'spot/show/show.details.location.html.twig' %}
+
+    <!-- CONTRIBUTIONS -->
+    {% include 'spot/show/show.details.contribution.html.twig' %}
+</aside>

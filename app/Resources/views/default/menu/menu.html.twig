@@ -15,9 +15,9 @@
                             <a href="{{ path('homepage') }}"><span>{{ 'menu.home'|trans }}</span></a>
                         </li>
                         {% if not app.user %}
-                            {% include 'default/menu.user.not.logged.html.twig' %}
+                            {% include 'default/menu/menu.user.not.logged.html.twig' %}
                         {% else %}
-                            {% include 'default/menu.user.logged.html.twig' %}
+                            {% include 'default/menu/menu.user.logged.html.twig' %}
                         {% endif %}
                     </ul>
                 </div>

@@ -31,10 +31,10 @@
             {% if hasLocation %}
                 {% if spots|length > 0 %}
                     <!-- FILTER LEFT SIDE -->
-                    {% include 'spot/listing.filter.html.twig' %}
+                    {% include 'spot/listing/listing.filter.html.twig' %}
 
                     <!-- RESULTS -->
-                    {% include 'spot/listing.results.html.twig' %}
+                    {% include 'spot/listing/listing.results.html.twig' %}
                 {% else %}
                     <div class="main_title centered upper">
                         <h2><span class="line"><span class="dot"></span></span>{{ 'spot.listing.no_result.main_title'|trans }}</h2>

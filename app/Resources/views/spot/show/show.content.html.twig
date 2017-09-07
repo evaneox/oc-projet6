@@ -1,0 +1,61 @@
+<div class="content_block col-md-9 f_right">
+    <div class="hm_blog_full_list hm_blog_list clearfix">
+        <div id="post-1" class="post-1 post type-post status-publish format-gallery has-post-thumbnail category-media tag-photos clearfix">
+            <!-- META INFORMATION -->
+            <div class="post_title_con">
+                <span class="meta">
+                    <span class="meta_part"><i class="ico-clock7"></i><span>{{ spot.createdAt| localizeddate('medium', 'none', app.request.locale, null , 'd MMMM Y' ) }}</span></span>
+                    <span class="meta_part"><i class="ico-user5"></i><span>{{ spot.author.username }}</span></span>
+                    <span class="meta_part"><i class="ico-comment-o"></i><span>{{ spot.getComments | length }} {{ 'spot.show.comments.title' |trans }}</span></span>
+                </span>
+            </div>
+            <div class="post_format_con">
+                <span><i class="ico-gallery"></i></span>
+            </div>
+            <div class="feature_inner">
+                <div class="feature_inner_corners">
+                    <div class="porto_galla owl-carousel owl-theme">
+                        {% if spot.getImages |length > 0 %}
+                            {% for image in spot.getImages %}
+                                <div>
+                                    <a href="{{ asset(image.getWebPath) }}" class="feature_inner_ling">
+                                        <img src="{{ asset(image.getWebPath) }}" alt="{{ 'spot.listing.alt_picture'|trans|upper }}"/>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div><img src="{{ asset('uploads/pictures/no_picture.png') }}" alt="{{ 'spot.listing.alt_picture'|trans|upper }}"/></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- DESCRIPTION -->
+            <div class="blog_grid_con">
+                <div class="small_title">
+                    <span class="small_title_con">
+                        <span class="s_icon"><i class="ico-tag4"></i></span>
+                        <span class="s_text">{{ 'spot.show.description.main_title'|trans }}</span>
+                    </span>
+                </div>
+                {% if spot.description %}
+                    {{ spot.description|html }}
+                {% else %}
+                    <blockquote>
+                        <i class="ico-quote"></i>
+                        <span class="quote_text">{{ 'spot.show.description.empty'|trans|raw }}</span>
+                    </blockquote>
+                {% endif %}
+            </div>
+            <div class="single_pro_row">
+                <div id="share_on_socials">
+                    <a class="facebook" target="_blank" title="Facebook" href="https://www.facebook.com/sharer.php?u={{ app.request.uri }} ~ &amp;t={{ 'share.slogan'|trans }}" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');" class="btn-share-fb"><i class="ico-facebook4"></i></a>
+                    <a class="twitter"target="_blank" title="Twitter" href="https://twitter.com/share?url={{ app.request.uri }} ~ &amp;text={{ 'share.slogan'|trans }}&amp;via=geopinsport" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');" class="btn-share-tw"><i class="ico-twitter4"></i></a>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+
+    </div>
+</div>

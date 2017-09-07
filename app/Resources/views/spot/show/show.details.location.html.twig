@@ -1,0 +1,17 @@
+{% if spot.getLocations |length > 0 %}
+    <div class="widget_block">
+        <div class="small_title">
+            <span class="small_title_con">
+                <span class="s_icon"><i class="ico-weather"></i></span>
+                <span class="s_text">{{ 'spot.show.informations.location_title'|trans|upper }}</span>
+            </span>
+        </div>
+        <div class="tagcloud style2 clearfix">
+            <div class="tags_con">
+                {% for location in spot.locations %}
+                    <span>{{ location.name|e }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}

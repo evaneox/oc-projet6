@@ -1,11 +1,10 @@
 <div class="content_block col-md-9 f_right">
-
     <div id="comments" class="comments-area">
         <div class="small_title">
-							<span class="small_title_con">
-								<span class="s_icon"><i class="ico-comment-o"></i></span>
-								<span class="s_text">{{ 'spot.show.comments.title'|trans|upper }} ({{ spot.getComments | length }})</span>
-							</span>
+            <span class="small_title_con">
+                <span class="s_icon"><i class="ico-comment-o"></i></span>
+                <span class="s_text">{{ 'spot.show.comments.title'|trans|upper }} ({{ spot.getComments | length }})</span>
+            </span>
         </div>
         {% if spot.getComments | length == 0 %}
             <p class="comment-notes">&bull; {{ 'spot.show.comments.no_comment'|trans }}</p>
@@ -37,10 +36,10 @@
         <div class="comments-form-area" id="comments-form">
             <div class="comment-respond" id="respond">
                 <div class="small_title">
-									<span class="small_title_con">
-										<span class="s_icon"><i class="ico-pencil6"></i></span>
-										<span class="s_text">{{ 'spot.show.comments.reply_title'|trans|upper }}</span>
-									</span>
+                    <span class="small_title_con">
+                        <span class="s_icon"><i class="ico-pencil6"></i></span>
+                        <span class="s_text">{{ 'spot.show.comments.reply_title'|trans|upper }}</span>
+                    </span>
                 </div>
                 {% if app.user %}
                     <form class="comment-form" id="commentform" method="post" action="{{ path('comment.create') }}">

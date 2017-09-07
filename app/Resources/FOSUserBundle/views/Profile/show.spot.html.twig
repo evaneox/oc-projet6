@@ -1,0 +1,37 @@
+<li>
+    <div class="add2cart_slide">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="add2cart_image">
+                    <div class="porto_galla owl-carousel owl-theme">
+                        {% if spot.getImages |length > 0 %}
+                            {% for image in spot.getImages | slice(0,1)%}
+                                <div><img src="{{ asset(image.getWebPath) }}" alt="{{ 'spot.listing.alt_picture'|trans|upper }}"/></div>
+                            {% endfor %}
+                        {% else %}
+                            <div><img src="{{ asset('uploads/pictures/no_picture.png') }}" alt="{{ 'spot.listing.alt_picture'|trans|upper }}"/></div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="add2cart_details">
+                    <div class="con_cont">
+                        <address>{{ spot.address|e|upper }}</address>
+                        <div class="tags_con">
+                            {% for sport in spot.sports | slice(0, 4) %}
+                                <span>{{ sport.name|e }}</span>
+                            {% endfor %}
+                            {% if spot.sports|length > 4 %}
+                                <span>[ .. ]</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="more">
+                        <a class="main_button color1 small_btn bottom_space" target="_blank" href="{{ path('spot.show', {'slug': spot.slug, 'id': spot.id}) }}">
+                            <i class="in_left ico-eye3"></i>{{ 'spot.listing.more'|trans|upper }}
+                        </a>&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

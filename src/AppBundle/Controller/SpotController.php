@@ -37,7 +37,7 @@ class SpotController extends Controller
             ));
         }
 
-        return $this->render('spot/create.html.twig', array(
+        return $this->render('spot/create/create.html.twig', array(
             'form'      => $form->createView(),
         ));
     }
@@ -55,7 +55,7 @@ class SpotController extends Controller
             $form = $this->createForm(SportType::class);
             $spots = $this->get('app.spot')->getResults($address);
         }
-        return $this->render('spot/listing.html.twig', array(
+        return $this->render('spot/listing/listing.html.twig', array(
             'hasLocation'   => $hasLocation,
             'spots'         => $hasLocation ? $spots : null,
             'form'          => $hasLocation ? $form->createView() : null
@@ -75,7 +75,7 @@ class SpotController extends Controller
             throw $this->createNotFoundException('This spot does not exist');
         }
 
-        return $this->render('spot/show.html.twig', array(
+        return $this->render('spot/show/show.html.twig', array(
             'spot'              => $spot[0],
             'contributions'     => $this->getDoctrine()->getRepository('AppBundle:Contribution')->getUniqueContributionForSpot($id)
         ));
@@ -115,7 +115,7 @@ class SpotController extends Controller
             $this->get('app.spot')->updateCurrentEditor($spot);
         }
 
-        return $this->render('spot/edit.html.twig', array(
+        return $this->render('spot/edit/edit.html.twig', array(
             'spot'              => $spot,
             'form'              => $form->createView(),
             'isWritable'        => $this->get('app.spot')->isWritable($spot),
