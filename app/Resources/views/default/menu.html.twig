@@ -11,27 +11,13 @@
                 <div id="nav_menu">
                     <span class="mobile_menu_trigger"><a href="#" class="nav_trigger"><span></span></a></span>
                     <ul id="navy" class="clearfix">
-
                         <li class="normal_menu mobile_menu_toggle {% if app.request.get('_route') == 'homepage' %}current_page_item {% endif %}">
                             <a href="{{ path('homepage') }}"><span>{{ 'menu.home'|trans }}</span></a>
                         </li>
                         {% if not app.user %}
-                        <li class="normal_menu mobile_menu_toggle {% if app.request.get('_route') == 'login' %}current_page_item {% endif %}">
-                            <a href="{{ path('fos_user_security_login') }}"><span>{{ 'menu.login'|trans }}</span></a>
-                        </li>
-                        <li class="normal_menu mobile_menu_toggle {% if app.request.get('_route') == 'register' %}current_page_item {% endif %}">
-                            <a href="{{ path('fos_user_registration_register') }}"><span>{{ 'menu.register'|trans }}</span></a>
-                        </li>
+                            {% include 'default/menu.user.not.logged.html.twig' %}
                         {% else %}
-                            <li class="normal_menu mobile_menu_toggle">
-                                <a href="{{ path('fos_user_security_logout') }}"><span>{{ 'menu.logout'|trans }}</span></a>
-                            </li>
-                            <li class="normal_menu mobile_menu_toggle {% if app.request.get('_route') == 'account' %}current_page_item {% endif %}">
-                                <a href="{{ path('fos_user_profile_show') }}"><span>{{ 'menu.account'|trans }}</span></a>
-                            </li>
-                            <li class="normal_menu mobile_menu_toggle" {% if app.request.get('_route') == 'spot.create' %}current_page_item {% endif %}>
-                                <a href="{{ path('spot.create') }}"><span>{{ 'menu.share_spot'|trans }}</span></a>
-                            </li>
+                            {% include 'default/menu.user.logged.html.twig' %}
                         {% endif %}
                     </ul>
                 </div>

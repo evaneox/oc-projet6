@@ -1,0 +1,6 @@
+<li class="normal_menu mobile_menu_toggle {% if app.request.get('_route') == 'login' %}current_page_item {% endif %}">
+    <a href="{{ path('fos_user_security_login') }}"><span>{{ 'menu.login'|trans }}</span></a>
+</li>
+<li class="normal_menu mobile_menu_toggle {% if app.request.get('_route') == 'register' %}current_page_item {% endif %}">
+    <a href="{{ path('fos_user_registration_register') }}"><span>{{ 'menu.register'|trans }}</span></a>
+</li>
