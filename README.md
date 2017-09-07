@@ -1,3 +1,5 @@
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/c2163eec-437b-489d-8e6a-d01915a6df49/big.png)](https://insight.sensiolabs.com/projects/c2163eec-437b-489d-8e6a-d01915a6df49)
+
 [Projet 6] Contribuez à votre écosystème
 ==============================================
 
