@@ -27,7 +27,7 @@ class AddressCheckValidator extends ConstraintValidator
          */
         if($this->request->get('_route') == 'spot.create'){
             //We check if address is valid
-            $requete = $add = new GeocoderAddressRequest($address);
+            $add = new GeocoderAddressRequest($address);
             $response = $this->container->get('ivory.google_map.geocoder')->geocode($add);
 
             if(empty($address) || $response->getStatus() == 'ZERO_RESULTS'){

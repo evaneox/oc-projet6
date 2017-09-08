@@ -146,7 +146,6 @@ class SpotAction
      */
     public function updateCurrentEditor(Spot $spot)
     {
-        $user = $this->container->get('security.token_storage')->getToken()->getUser();
 
         // We register new edition only if spot is not lock
         if($this->isWritable($spot)){
