@@ -14,7 +14,7 @@ class CommentController extends Controller
 {
     /**
      * @Route("/comment/create", name="comment.create")
-     * @Method({"POST","PUT"})
+     * @Method({"POST"})
      */
     public function CommentCreateAction(Request $request)
     {
