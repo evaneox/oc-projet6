@@ -14,6 +14,7 @@ class CommentController extends Controller
 {
     /**
      * @Route("/comment/create", name="comment.create")
+     * @Method({"POST","PUT"})
      */
     public function CommentCreateAction(Request $request)
     {
@@ -24,6 +25,7 @@ class CommentController extends Controller
     /**
      * @Route("/comment/delete/{id}", name="comment.delete", requirements={"id": "\d+"})
      * @Security("has_role('ROLE_ADMIN')")
+     * @Method({"POST","DELETE"})
      */
     public function CommentDeleteAction($id, Request $request)
     {

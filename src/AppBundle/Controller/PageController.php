@@ -10,6 +10,7 @@ class PageController extends Controller
 
     /**
      * @Route("/legacy", name="legacy")
+     * @Method({"GET"})
      */
     public function legacyAction()
     {

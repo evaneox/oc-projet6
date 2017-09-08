@@ -16,6 +16,7 @@ class SpotController extends Controller
 {
     /**
      * @Route("/pin/create", name="spot.create")
+     * @Method({"GET","POST"})
      */
     public function SpotCreateAction(Request $request)
     {
@@ -44,6 +45,7 @@ class SpotController extends Controller
 
     /**
      * @Route("/pin/listings", name="spot.search")
+     * @Method({"GET"})
      */
     public function SpotSearchAction(Request $request)
     {
@@ -64,6 +66,7 @@ class SpotController extends Controller
 
     /**
      * @Route("/pin/show/{slug}/{id}", name="spot.show", requirements={"id": "\d+"})
+     * @Method({"GET"})
      */
     public function SpotDetailAction($id)
     {
@@ -83,6 +86,7 @@ class SpotController extends Controller
 
     /**
      * @Route("/pin/edit/{slug}/{id}", name="spot.edit", requirements={"id": "\d+"})
+     * @Method({"GET","POST"})
      */
     public function SpotEditAction($id, Request $request)
     {
@@ -127,6 +131,7 @@ class SpotController extends Controller
     /**
      * @Route("/pin/delete/{id}", name="spot.delete", requirements={"id": "\d+"})
      * @Security("has_role('ROLE_ADMIN')")
+     * @Method({"POST","DELETE"})
      */
     public function SpotDeleteAction($id, Request $request)
     {
