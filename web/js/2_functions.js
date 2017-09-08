@@ -206,7 +206,7 @@ $(function(){
          */
         $('#filter_sports_delete').on('click', function(event){
             event.preventDefault();
-            $("select").multipleSelect("uncheckAll");
+            $("select.style_full").multipleSelect("uncheckAll");
 
             $('.icheckbox_minimal').each(function(){
                 $(this).removeClass('checked');
