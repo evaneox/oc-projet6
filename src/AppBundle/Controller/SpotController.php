@@ -132,7 +132,7 @@ class SpotController extends Controller
     /**
      * @Route("/pin/delete/{id}", name="spot.delete", requirements={"id": "\d+"})
      * @Security("has_role('ROLE_ADMIN')")
-     * @Method({"POST","DELETE"})
+     * @Method({"POST","DELETE","GET"})
      */
     public function SpotDeleteAction($id, Request $request)
     {
