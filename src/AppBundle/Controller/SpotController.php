@@ -10,6 +10,7 @@ use AppBundle\Form\Type\SpotType;
 use AppBundle\Form\Type\SportType;
 use AppBundle\Form\Type\SpotFullType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 
 class SpotController extends Controller
